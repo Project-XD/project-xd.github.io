@@ -63,19 +63,15 @@ let hideOutdated = true;
 
 // Populate configs and filter options
 document.addEventListener("DOMContentLoaded", () => {
-    populateConfigs();
-    populateTagFilter();
-    populateServerFilter();
+populateConfigs();
+populateTagFilter();
+populateServerFilter();
 });
 
 // Function to populate configs
 function populateConfigs(filteredTag = "all") {
-    const tagFilterElement = document.getElementById('tagFilter');
-    const selectedTag = tagFilterElement ? tagFilterElement.value : 'all';
-
-    const serverFilterElement = document.getElementById('serverFilter');
-    const selectedServer = serverFilterElement ? serverFilterElement.value : 'all';
-
+    const selectedTag = document.getElementById('tagFilter').value;
+    const selectedServer = document.getElementById('serverFilter').value;
     const configList = document.getElementById('configList');
     configList.innerHTML = '';
 
@@ -86,7 +82,7 @@ function populateConfigs(filteredTag = "all") {
         }
 
         // Skip configs with "outdated" tag if hideOutdated is true
-        if (hideOutdated && config.tags .includes("outdated")) {
+        if (hideOutdated && config.tags.includes("outdated")) {
             return;
         }
 
@@ -106,13 +102,13 @@ function populateConfigs(filteredTag = "all") {
                 <p>${config.server}</p>
                 <p>${config.creator}</p>
                 <a href="config?id=${config.id}">View Config</a>
-            `;
+                `;
             configList.appendChild(configDiv);
         }
     });
 }
 
-// Function to populate tag filter options
+
 function populateTagFilter() {
     const tagFilter = document.getElementById('tagFilter');
     let allTags = new Set();
@@ -122,14 +118,14 @@ function populateTagFilter() {
                 allTags.add(tag);
             }
         });
-    });
+});
 
-    allTags.forEach(tag => {
-        const option = document.createElement('option');
-        option.value = tag;
-        option.textContent = tag;
-        tagFilter.appendChild(option);
-    });
+allTags.forEach(tag => {
+    const option = document.createElement('option');
+    option.value = tag;
+    option.textContent = tag;
+    tagFilter.appendChild(option);
+});
 }
 
 // Function to populate server filter options
@@ -138,14 +134,14 @@ function populateServerFilter() {
     let allServers = new Set();
     configs.forEach(config => {
         allServers.add(config.server);
-    });
+});
 
-    allServers.forEach(server => {
-        const option = document.createElement('option');
-        option.value = server;
-        option.textContent = server;
-        serverFilter.appendChild(option);
-    });
+allServers.forEach(server => {
+    const option = document.createElement('option');
+    option.value = server;
+    option.textContent = server;
+    serverFilter.appendChild(option);
+});
 }
 
 // Function to toggle outdated configs visibility
