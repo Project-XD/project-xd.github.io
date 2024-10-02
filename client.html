@@ -62,7 +62,7 @@
             <img src="${client.cover}" alt="${client.name}" class="cover-image">
             <div class="details">
                 <h2>${client.name}</h2>
-                <p>Price: ${client.price}</p>
+                <p>Creator: ${client.creator}</p>
                 <p>${client.description}</p>
                 <h3>Tags:</h3>
                 <ul>${client.tags.map(tag => `<li style="border-color: ${client.colors.accent};">${tag}</li>`).join('')}</ul>
@@ -77,9 +77,6 @@
         img.style.borderColor = client.colors.accent;
     });
     document.querySelector('.cover-image').style.borderColor = client.colors.accent;
-    if (client.price !== "Free"){
-        document.querySelector('.download-button').textContent = "Purchase";
-    }
 });
 
 
