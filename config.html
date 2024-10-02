@@ -34,13 +34,11 @@
 
     const configDetails = document.getElementById('configDetails');
     
-    let screenshotsContent = '';
-    if (config.screenshots && config.screenshots.length > 0) {
-        screenshotsContent = `
-            <h3 style="color: ${config.colors.text};">Screenshots:</h3>
-            <div class="screenshots">
-                ${config.screenshots.map(screenshot => `<img src="${screenshot}" alt="Screenshot">`).join('')}
-            </div>
+    let ipContent = '';
+    if (config.ip && config.ip.length > 0) {
+        ipContent = `
+            <h3 style="color: ${config.colors.text};">IP:</h3>
+            <p>${config.ip}</p>
         `;
     }
 
