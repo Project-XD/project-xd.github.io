@@ -1,4 +1,4 @@
-// Client data
+// Config data
 const presetColors = {
     white: "#ffffff",
     black: "#000000",
@@ -22,7 +22,7 @@ const presetColors = {
     darkRed: "#800000"
 }
 
-const clients = [
+const configs = [
 {
     id: 1,
     name: "BlocksMC",
@@ -58,52 +58,52 @@ const clients = [
     }
 }
 ];
-// Boolean flag to hide clients with "outdated" tag
+// Boolean flag to hide configs with "outdated" tag
 let hideOutdated = true;
 
-// Populate clients and filter options
+// Populate configs and filter options
 document.addEventListener("DOMContentLoaded", () => {
-populateClients();
+populateConfigs();
 populateTagFilter();
 populateServerFilter();
 });
 
-// Function to populate clients
-function populateClients(filteredTag = "all") {
+// Function to populate configs
+function populateConfigs(filteredTag = "all") {
 const selectedTag = document.getElementById('tagFilter').value;
 const selectedServer = document.getElementById('serverFilter').value;
-const clientList = document.getElementById('clientList');
-clientList.innerHTML = '';
+const configList = document.getElementById('configList');
+configList.innerHTML = '';
 
-clients.forEach(client => {
-    // Skip clients with "hidden" tag
-    if (client.tags.includes("hidden")) {
+configs.forEach(config => {
+    // Skip configs with "hidden" tag
+    if (config.tags.includes("hidden")) {
         return;
     }
 
-    // Skip clients with "outdated" tag if hideOutdated is true
-    if (hideOutdated && client.tags.includes("outdated")) {
+    // Skip configs with "outdated" tag if hideOutdated is true
+    if (hideOutdated && config.tags.includes("outdated")) {
         return;
     }
 
-    if ((selectedTag === "all" || client.tags.includes(selectedTag)) &&
-        (selectedServer === "all" || client.server === selectedServer)) {
-        const clientDiv = document.createElement('div');
-        clientDiv.className = 'client';
+    if ((selectedTag === "all" || config.tags.includes(selectedTag)) &&
+        (selectedServer === "all" || config.server === selectedServer)) {
+        const configDiv = document.createElement('div');
+        configDiv.className = 'config';
 
-        // Apply rainbow border if client is recommended
-        if (client.tags.includes("recommended")) {
-            clientDiv.classList.add('recommended');
+        // Apply rainbow border if config is recommended
+        if (config.tags.includes("recommended")) {
+            configDiv.classList.add('recommended');
         }
 
-        clientDiv.innerHTML = `
-            <img src="${client.cover}" alt="if you see this, firefox messed up (or bipas did lol)${client.name}">
-            <h2>${client.name}</h2>
-            <p>${client.server}</p>
-            <p>${client.creator}</p>
-            <a href="client.html?id=${client.id}">View Client</a>
+        configDiv.innerHTML = `
+            <img src="${config.cover}" alt="if you see this, firefox messed up (or qloha did lol)${Config.name}">
+            <h2>${config.name}</h2>
+            <p>${config.server}</p>
+            <p>${config.creator}</p>
+            <a href="config.html?id=${config.id}">View Config</a>
         `;
-        clientList.appendChild(clientDiv);
+        configList.appendChild(configDiv);
     }
 });
 }
@@ -113,8 +113,8 @@ clients.forEach(client => {
 function populateTagFilter() {
 const tagFilter = document.getElementById('tagFilter');
 let allTags = new Set();
-clients.forEach(client => {
-    client.tags.forEach(tag => {
+configs.forEach(config => {
+    config.tags.forEach(tag => {
         if (tag !== 'hidden') {
             allTags.add(tag);
         }
@@ -133,8 +133,8 @@ allTags.forEach(tag => {
 function populateServerFilter() {
 const serverFilter = document.getElementById('serverFilter');
 let allServers = new Set();
-clients.forEach(client => {
-    allServers.add(client.server);
+configs.forEach(config => {
+    allServers.add(config.server);
 });
 
 allServers.forEach(server => {
@@ -145,14 +145,14 @@ allServers.forEach(server => {
 });
 }
 
-// Function to toggle outdated clients visibility
-function toggleOutdatedClients() {
+// Function to toggle outdated configs visibility
+function toggleOutdatedConfigs() {
 hideOutdated = !hideOutdated;
 document.getElementById('toggleOutdated').textContent = hideOutdated ? "Hide Outdated" : "Show Outdated";
-filterClients();
+filterConfigs();
 }
 
-// Function to filter clients based on selected tag and game
-function filterClients() {
-populateClients();
+// Function to filter configs based on selected tag and game
+function filterConfigs() {
+populateConfigs();
 }

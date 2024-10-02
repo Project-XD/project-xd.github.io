@@ -15,7 +15,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
-header, .client, header button, header select {
+header, .config, header button, header select {
     background-color: #8b8b8b70;
     backdrop-filter: blur(10px);
 }
@@ -57,7 +57,7 @@ main {
     margin: 1rem;
 }
 
-.client { 
+.config { 
     border: 1px solid #ddd;
     margin: 1rem;
     padding: 1rem;
@@ -75,28 +75,28 @@ main {
     100% { background-color: #8b8b8b70; }
 }
 
-.client:hover {
+.config:hover {
     animation: colorChange 3s infinite;
 }
 
 
-.client img {
+.config img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
 }
 
-.client h2 {
+.config h2 {
     font-size: 1.2rem;
     margin: 0.5rem 0;
 }
 
-.client p {
+.config p {
     color: #383838;
 }
 
-.client a {
+.config a {
     display: inline-block;
     margin-top: 0.5rem;
     padding: 0.5rem 1rem;
@@ -109,7 +109,7 @@ main {
     transition: transform 0.5s ease;
 }
 
-.client a:hover {
+.config a:hover {
     background-color: #555;
     transform: scale(1.1);
 }

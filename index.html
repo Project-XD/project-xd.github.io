@@ -16,22 +16,22 @@
         </div>
         <div>
             <label for="serverFilter">Filter by server:</label>
-            <select id="serverFilter" onchange="filterClients()">
+            <select id="serverFilter" onchange="filterConfigs()">
                 <option value="all">All</option>
             </select>
 
             <label for="tagFilter">Filter by tag:</label>
-            <select id="tagFilter" onchange="filterClients()">
+            <select id="tagFilter" onchange="filterConfigs()">
                 <option value="all">All</option>
             </select>
 
-            <button id="toggleOutdated" onclick="toggleOutdatedClients()">Hide Outdated</button>
+            <button id="toggleOutdated" onclick="toggleOutdatedConfigs()">Hide Outdated</button>
         </div>
 
     </header>
 
-    <main id="clientList">
-        <!-- Client items will be injected here by JavaScript -->
+    <main id="configList">
+        <!-- Config items will be injected here by JavaScript -->
     </main>
 
     <script src="script.js"></script>
