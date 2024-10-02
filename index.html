@@ -17,6 +17,19 @@
                 <img src="assets/github.png" alt="Github" style="width: 30px; height: 30px;">
             </a>
         </div>
+        <div>
+            <label for="gameFilter">Filter by game:</label>
+            <select id="gameFilter" onchange="filterClients()">
+                <option value="all">All</option>
+            </select>
+
+            <label for="tagFilter">Filter by tag:</label>
+            <select id="tagFilter" onchange="filterClients()">
+                <option value="all">All</option>
+            </select>
+
+            <button id="toggleOutdated" onclick="toggleOutdatedClients()">Hide Outdated</button>
+        </div>
 
     </header>
 
