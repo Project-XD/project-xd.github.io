@@ -15,6 +15,11 @@
             </a>
         </div>
         <div>
+            <label for="serverFilter">Filter by server:</label>
+            <select id="serverFilter" onchange="filterConfigs()">
+                <option value="all">All</option>
+            </select>
+
             <label for="tagFilter">Filter by tag:</label>
             <select id="tagFilter" onchange="filterConfigs()">
                 <option value="all">All</option>
