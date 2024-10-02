@@ -97,7 +97,7 @@ configs.forEach(config => {
         }
 
         configDiv.innerHTML = `
-            <img src="${config.cover}" alt="if you see this, firefox messed up (or qloha did lol)${Config.name}">
+            <img src="${config.cover}" alt="if you see this, firefox messed up (or qloha did lol)${config.name}">
             <h2>${config.name}</h2>
             <p>${config.server}</p>
             <p>${config.creator}</p>
