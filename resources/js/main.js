@@ -101,7 +101,7 @@ configs.forEach(config => {
             <h2>${config.name}</h2>
             <p>${config.server}</p>
             <p>${config.creator}</p>
-            <a href="config.html?id=${config.id}">View Config</a>
+            <a href="config?id=${config.id}">View Config</a>
         `;
         configList.appendChild(configDiv);
     }
