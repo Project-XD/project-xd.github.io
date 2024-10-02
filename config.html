@@ -33,14 +33,6 @@
     `;
 
     const configDetails = document.getElementById('configDetails');
-    
-    let ipContent = '';
-    if (config.ip && config.ip.length > 0) {
-        ipContent = `
-            <h3 style="color: ${config.colors.text};">IP:</h3>
-            <p>${config.ip}</p>
-        `;
-    }
 
     let otherButtonsContent = '';
     if (config.otherButtons && config.otherButtons.length > 0) {
@@ -60,6 +52,7 @@
                 <h2>${config.name}</h2>
                 <p>Creator: ${config.creator}</p>
                 <p>${config.description}</p>
+                <p>IP: ${config.ip}</p>
                 <h3>Tags:</h3>
                 <ul>${config.tags.map(tag => `<li style="border-color: ${config.colors.accent};">${tag}</li>`).join('')}</ul>
             </div>
