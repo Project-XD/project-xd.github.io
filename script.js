@@ -30,7 +30,7 @@ const clients = [
     tags: ["Blatant", "BlocksMC", "recommended"],
     server: "BlocksMC.com",
     description: "Config for BlocksMC",
-    cover: "https://raw.githubusercontent.com/xia-mc/Raven-XD/master/logo/logo.png",
+    cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/assets/icons/blocksmc.png",
     screenshots: ["https://github.com/user-attachments/assets/36e8920e-336e-4b62-ae3f-6b9962920812", "https://github.com/user-attachments/assets/85637f18-9d6b-47d9-9dc2-cb8594aff585"],
     downloadLink: "https://lootdest.org/s?abc853f3",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Get Forge"]],
@@ -47,7 +47,7 @@ const clients = [
     tags: ["Multi-Server", "recommended"],
     server: "Any",
     description: "A legit config that ", // Stolen from Spezz.exchange
-    cover: "https://spezz.exchange/uploads/monthly_2023_09/Augustus_Logo.webp.21990eea9fead38fbc9edfbc54b0a112.webp",
+    cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/assets/icons/any.png",
     screenshots: ["https://spezz.exchange/uploads/monthly_2023_09/menu.webp.8e9432567dc1832cbfc1aabbc28d21e8.webp", "https://spezz.exchange/uploads/monthly_2023_09/screenshot.webp.4d44057d55f05dfcf4dba55600a6e894.webp"],
     downloadLink: "https://spezz.exchange/store/product/191-augustus-client-lifetime/",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Get Forge"]],
