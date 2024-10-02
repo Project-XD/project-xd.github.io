@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Details</title>
+    <link rel="stylesheet" href="client-styles.css">
+    <link id="favicon" rel="icon" href="assets/Yoshi.jpg" type="image/x-icon">
+</head>
+<body>
+    <header id="clientHeader">
+        <h1 id="clientTitle">Client Details</h1>
+        <a href="index.html" class="back-button">Back</a>
+    </header>
+
+    <main id="clientDetails">
+        <!-- Client details will be injected here by JavaScript -->
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const clientId = parseInt(params.get("id"));
+    const client = clients.find(p => p.id === clientId);
+
+    // Apply client colors and gradient background
+    document.getElementById('clientHeader').style.borderBottomColor = client.colors.header;
+    document.getElementById('clientTitle').style.color = client.colors.text;
+    document.querySelector('.back-button').style.borderColor = client.colors.header;
+
+    document.body.style.background = `
+        radial-gradient(at 91% 86%, ${client.colors.header} 0px, transparent 70%),
+        radial-gradient(at 12% 13%, ${client.colors.accent} 0px, transparent 70%)
+    `;
+
+    const clientDetails = document.getElementById('clientDetails');
+    
+    let screenshotsContent = '';
+    if (client.screenshots && client.screenshots.length > 0) {
+        screenshotsContent = `
+            <h3 style="color: ${client.colors.text};">Screenshots:</h3>
+            <div class="screenshots">
+                ${client.screenshots.map(screenshot => `<img src="${screenshot}" alt="Screenshot">`).join('')}
+            </div>
+        `;
+    }
+
+    let otherButtonsContent = '';
+    if (client.otherButtons && client.otherButtons.length > 0) {
+        otherButtonsContent = `
+            <div class="other-buttons">
+                 ${client.otherButtons.map(button => `
+                     <a href="${button[0]}" class="download-button"  target="_blank" style="border-color: ${client.colors.accent};">${button[1]}</a>
+                `).join('')}
+            </div>
+         `;
+    }
+
+    clientDetails.innerHTML = `
+        <div class="client-info" style="color: ${client.colors.text};">
+            <img src="${client.cover}" alt="${client.name}" class="cover-image">
+            <div class="details">
+                <h2>${client.name}</h2>
+                <p>Price: ${client.price}</p>
+                <p>${client.description}</p>
+                <h3>Tags:</h3>
+                <ul>${client.tags.map(tag => `<li style="border-color: ${client.colors.accent};">${tag}</li>`).join('')}</ul>
+            </div>
+        </div>
+        ${screenshotsContent}
+        <a href="${client.downloadLink}" class="download-button" style="border-color: ${client.colors.accent};"  target="_blank">Download </a>
+        ${otherButtonsContent} <!-- Add the other buttons here -->
+    `;
+    document.title = client.name + " :3";
+    document.querySelectorAll('.screenshots img').forEach(function(img) {
+        img.style.borderColor = client.colors.accent;
+    });
+    document.querySelector('.cover-image').style.borderColor = client.colors.accent;
+    if (client.price !== "Free"){
+        document.querySelector('.download-button').textContent = "Purchase";
+    }
+});
+
+
+    </script>
+</body>
+</html>

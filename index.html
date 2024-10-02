@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sub 2 Heist Hacks</title>
+    <link id="favicon" rel="icon" href="assets/Yoshi.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div>
+            <a href="https://discord.gg/Z52qusVhcu" target="_blank">
+                <img src="assets/discord-logo.png" alt="Discord" style="width: 30px; height: 30px;">
+            </a>
+            <a href="https://www.youtube.com/@heisthacks" target="_blank">
+                <img src="assets/youtube-logo.png" alt="YouTube" style="width: 30px; height: 30px;">
+            </a>
+        </div>
+        <div>
+            <label for="gameFilter">Filter by game:</label>
+            <select id="gameFilter" onchange="filterClients()">
+                <option value="all">All</option>
+            </select>
+
+            <label for="tagFilter">Filter by tag:</label>
+            <select id="tagFilter" onchange="filterClients()">
+                <option value="all">All</option>
+            </select>
+
+            <button id="toggleOutdated" onclick="toggleOutdatedClients()">Hide Outdated</button>
+        </div>
+
+    </header>
+
+    <main id="clientList">
+        <!-- Client items will be injected here by JavaScript -->
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        const titles = ["Welcum to Heist Hacks", "Meist Hacks?", "<3", "cat :3", "Meow", "Sub 2 Heist Hacks", "I Love Nekomame"];
+
+        function changeTabTitle() {
+            const randomTitle = titles[Math.floor(Math.random() * titles.length)];
+            document.title = randomTitle;
+        }
+
+        setInterval(changeTabTitle, 3000);
+    </script>
+</body>
+</html>
