@@ -71,7 +71,7 @@
         <a href="${config.downloadLink}" class="download-button" style="border-color: ${config.colors.accent};"  target="_blank">Download </a>
         ${otherButtonsContent} <!-- Add the other buttons here -->
     `;
-    document.title = config.name + " :3";
+    document.title = config.name + "-" + config.creator;
     document.querySelectorAll('.screenshots img').forEach(function(img) {
         img.style.borderColor = config.colors.accent;
     });
