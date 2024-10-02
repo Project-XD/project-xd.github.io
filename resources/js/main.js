@@ -86,7 +86,8 @@ configs.forEach(config => {
         return;
     }
 
-    if ((selectedTag === "all" || config.tags.includes(selectedTag))) {
+    if ((selectedTag === "all" || config.tags.includes(selectedTag)) &&
+        (selectedServer === "all" || config.server === selectedServer)) {
         const configDiv = document.createElement('div');
         configDiv.className = 'config';
 
@@ -125,6 +126,22 @@ allTags.forEach(tag => {
     option.value = tag;
     option.textContent = tag;
     tagFilter.appendChild(option);
+});
+}
+
+// Function to populate server filter options
+function populateServerFilter() {
+const serverFilter = document.getElementById('serverFilter');
+let allServers = new Set();
+configs.forEach(config => {
+    allServers.add(config.server);
+});
+
+allServers.forEach(server => {
+    const option = document.createElement('option');
+    option.value = server;
+    option.textContent = server;
+    serverFilter.appendChild(option);
 });
 }
 
