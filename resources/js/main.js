@@ -70,42 +70,41 @@ populateServerFilter();
 
 // Function to populate configs
 function populateConfigs(filteredTag = "all") {
-const selectedTag = document.getElementById('tagFilter').value;
-const selectedServer = document.getElementById('serverFilter').value;
-const configList = document.getElementById('configList');
-configList.innerHTML = '';
+    const selectedTag = document.getElementById('tagFilter').value;
+    const selectedServer = document.getElementById('serverFilter').value;
+    const configList = document.getElementById('configList');
+    configList.innerHTML = '';
 
-configs.forEach(config => {
-    // Skip configs with "hidden" tag
-    if (config.tags.includes("hidden")) {
-        return;
-    }
-
-    // Skip configs with "outdated" tag if hideOutdated is true
-    if (hideOutdated && config.tags.includes("outdated")) {
-        return;
-    }
-
-    if ((selectedTag === "all" || config.tags.includes(selectedTag)) &&
-        (selectedServer === "all" || config.server === selectedServer)) {
-        const configDiv = document.createElement('div');
-        configDiv.className = 'config';
-
-        // Apply rainbow border if config is recommended
-        if (config.tags.includes("recommended")) {
-            configDiv.classList.add('recommended');
+    configs.forEach(config => {
+        // Skip configs with "hidden" tag
+        if (config.tags.includes("hidden")) {
+            return;
         }
 
-        configDiv.innerHTML = `
-            <img src="${config.cover}" alt="qloha did an oopsie sorry -> ${config.name}">
-            <h2>${config.name}</h2>
-            <p>${config.server}</p>
-            <p>${config.creator}</p>
-            <a href="config?id=${config.id}">View Config</a>
-        `;
-        configList.appendChild(configDiv);
-    }
-});
+        // Skip configs with "outdated" tag if hideOutdated is true
+        if (hideOutdated && config.tags.includes("outdated")) {
+            return;
+        }
+
+        if ((selectedTag === "all" || config.tags.includes(selectedTag)) &&
+            (selectedServer === "all" || config.server === selectedServer)) {
+            const configDiv = document.createElement('div');
+            configDiv.className = 'config';
+
+            // Apply rainbow border if config is recommended
+            if (config.tags.includes("recommended")) {
+                configDiv.classList.add('recommended');
+            }
+
+            configDiv.innerHTML = `
+                <img src="${config.cover}" alt="qloha did an oopsie sorry -> ${config.name}">
+                <h2>${config.name}</h2>
+                <p>${config.server}</p>
+                <p>${config.creator}</p>
+                <a href="config?id=${config.id}">View Config</a>
+            configList.appendChild(configDiv);
+        }
+    });
 }
 
 
@@ -147,12 +146,12 @@ allServers.forEach(server => {
 
 // Function to toggle outdated configs visibility
 function toggleOutdatedConfigs() {
-hideOutdated = !hideOutdated;
-document.getElementById('toggleOutdated').textContent = hideOutdated ? "Hide Outdated" : "Show Outdated";
-filterConfigs();
+    hideOutdated = !hideOutdated;
+    document.getElementById('toggleOutdated').textContent = hideOutdated ? "Hide Outdated" : "Show Outdated";
+    filterConfigs();
 }
 
 // Function to filter configs based on selected tag and game
 function filterConfigs() {
-populateConfigs();
+    populateConfigs();
 }
