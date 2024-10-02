@@ -131,10 +131,10 @@ allTags.forEach(tag => {
 
 // Function to populate server filter options
 function populateServerFilter() {
-const serverFilter = document.getElementById('serverFilter');
-let allServers = new Set();
-configs.forEach(config => {
-    allServers.add(config.server);
+    const serverFilter = document.getElementById('serverFilter');
+    let allServers = new Set();
+    configs.forEach(config => {
+        allServers.add(config.server);
 });
 
 allServers.forEach(server => {
