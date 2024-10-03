@@ -107,7 +107,7 @@ main {
 
 .details ul li:hover {
     background-color: #555;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .screenshots {
