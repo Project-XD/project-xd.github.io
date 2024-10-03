@@ -39,6 +39,23 @@ const configs = [
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
+},
+{
+    id: 2,
+    name: "100% Legit",
+    creator: "qloha",
+    tags: ["Legit", "recommended"],
+    server: "Any",
+    description: ["100% Legit. Nothing enabled."],
+    cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/any.png",
+    ip: "Any",
+    downloadLink: "https://github.com/user-attachments/files/17238894/Legit-qloha.json",
+    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"]],
+    colors: {
+        text: "#000000", // Text
+        accent: "#36fff5", // Accent
+        header: "#f70cf0" // Header
+    }
 }
 ];
 // Boolean flag to hide configs with "outdated" tag
