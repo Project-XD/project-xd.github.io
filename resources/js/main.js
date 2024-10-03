@@ -26,13 +26,13 @@ const configs = [
 {
     id: 1,
     name: "BlocksMC Blatant",
-    creator: "qloha",
+    creator: "pzuo",
     tags: ["Blatant", "BlocksMC", "recommended"],
     server: "BlocksMC",
-    description: "Blatant config for BlocksMC.",
+    description: ["Everything bypasses, supports high and low ping.\nBedAura : G\nChestStealer : P\nGui : RSHIFT\nInvManager : P\nKillAura : R\nScaffold : LMENU/LALT\nSpeed : X"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/blocksmc.png",
     ip: "play.BlocksMC.com",
-    downloadLink: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/configs/BlocksMC-qloha.json",
+    downloadLink: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/configs/BlocksMC-under.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"]],
     colors: {
         text: "#000000", // Text
