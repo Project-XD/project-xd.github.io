@@ -29,7 +29,7 @@ const configs = [
     creator: "qloha",
     tags: ["Blatant", "BlocksMC", "recommended"],
     server: "BlocksMC",
-    description: "Config for BlocksMC",
+    description: "Blatant config for BlocksMC.",
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/blocksmc.png",
     ip: "play.BlocksMC.com",
     downloadLink: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/configs/BlocksMC-qloha.json",
