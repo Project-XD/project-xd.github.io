@@ -90,10 +90,11 @@ main {
 .config h2 {
     font-size: 1.2rem;
     margin: 0.5rem 0;
+    color: #f5e2ec;
 }
 
 .config p {
-    color: #383838;
+    color: #f5e2ec;
 }
 
 .config a {

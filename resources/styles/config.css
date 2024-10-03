@@ -30,11 +30,12 @@ header {
 
 header h1 {
     margin: 0;
+    color: #f5e2ec;
 }
 
 .back-button {
     padding: 0.5rem 1rem;
-    color: black;
+    color: #f5e2ec;
     text-decoration: none;
     border-radius: 5px;
     border: 2px solid rgb(0, 0, 0);
@@ -57,6 +58,7 @@ main {
 .config-info {
     display: flex;
     margin-bottom: 2rem;
+    color: #f5e2ec;
 }
 
 .cover-image {
@@ -76,6 +78,7 @@ main {
 
 .details {
     max-width: 500px;
+    color: #f5e2ec;
 }
 
 .details h2 {
@@ -141,7 +144,7 @@ main {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     background-color: #8b8b8b70;    
     border-radius: 5px;
-    color: black;
+    color: #f5e2ec;
 }
 
 .download-button:hover {
