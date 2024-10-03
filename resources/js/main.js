@@ -29,7 +29,7 @@ const configs = [
     creator: "pzuo",
     tags: ["Blatant", "BlocksMC", "recommended"],
     server: "BlocksMC",
-    description: ["Everything bypasses, supports high and low ping.\nBedAura : G\nChestStealer : P\nGui : RSHIFT\nInvManager : P\nKillAura : R\nScaffold : LMENU/LALT\nSpeed : X"],
+    description: ["Everything bypasses, supports high and low ping.<br />BedAura : G<br />ChestStealer : P<br />Gui : RSHIFT<br />InvManager : P<br />KillAura : R<br />Scaffold : LMENU/LALT<br />Speed : X"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/blocksmc.png",
     ip: "play.BlocksMC.com",
     downloadLink: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/configs/BlocksMC-under.json",
