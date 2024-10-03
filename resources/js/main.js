@@ -44,12 +44,29 @@ const configs = [
     id: 2,
     name: "100% Legit",
     creator: "qloha",
-    tags: ["Legit", "recommended"],
+    tags: ["Ghost", "recommended"],
     server: "Any",
     description: ["100% Legit. Nothing enabled."],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/any.png",
     ip: "Any",
     downloadLink: "https://github.com/user-attachments/files/17238894/Legit-qloha.json",
+    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"]],
+    colors: {
+        text: "#000000", // Text
+        accent: "#36fff5", // Accent
+        header: "#f70cf0" // Header
+    }
+},
+{
+    id: 3,
+    name: "VineMC Pit",
+    creator: "qloha",
+    tags: ["Blatant", "Ghost", "recommended"],
+    server: "VimeMC The Pit",
+    description: ["Bypasses fully, no flags.<br />Killaura : R<br />Speed : G<br />All Visuals : - (minus)"],
+    cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/any.png",
+    ip: "mc.vimemc.net",
+    downloadLink: "https://github.com/user-attachments/files/17251234/VMCPit-qloha.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"]],
     colors: {
         text: "#000000", // Text
