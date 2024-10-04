@@ -64,7 +64,7 @@ const configs = [
     tags: ["Blatant", "Ghost", "recommended"],
     server: "VimeMC The Pit",
     description: ["Bypasses fully, no flags.<br />Killaura : R<br />Speed : G<br />All Visuals : - (minus)"],
-    cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/any.png",
+    cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/VimeMC.png",
     ip: "mc.vimemc.net",
     downloadLink: "https://github.com/user-attachments/files/17251234/VMCPit-qloha.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"]],
