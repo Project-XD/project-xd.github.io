@@ -75,7 +75,7 @@ const configs = [
     }
 },
 {
-    id: 3,
+    id: 4,
     name: "HylexMC",
     creator: "qloha",
     tags: ["Blatant", "Ghost", "recommended"],
