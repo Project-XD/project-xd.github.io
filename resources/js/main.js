@@ -32,7 +32,7 @@ const configs = [
     description: ["Everything bypasses, supports high and low ping.<br />BedAura : G<br />ChestStealer : P<br />Gui : RSHIFT<br />InvManager : P<br />KillAura : R<br />Scaffold : LMENU/LALT<br />Speed : X"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/blocksmc.png",
     ip: "play.BlocksMC.com",
-    downloadLink: "https://github.com/user-attachments/files/17238858/BlocksMC-under.json",
+    downloadLink: "https://github.com/user-attachments/files/17265081/BlocksMC-under.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"]],
     colors: {
         text: "#000000", // Text
@@ -59,7 +59,7 @@ const configs = [
 },
 {
     id: 3,
-    name: "VineMC Pit",
+    name: "VimeMC Pit",
     creator: "qloha",
     tags: ["Blatant", "Ghost", "recommended"],
     anticheat: "Grim",
@@ -150,15 +150,21 @@ function populateAnticheatFilter() {
     const serverFilter = document.getElementById('serverFilter');
     let allAnticheats = new Set();
     configs.forEach(config => {
-        allAnticheats.add(config.anticheat);
-});
+        if (Array.isArray(config.anticheat)) {
+            config.anticheat.forEach(anticheat => {
+                allAnticheats.add(anticheat);
+            });
+        } else {
+            allAnticheats.add(config.anticheat);
+        }
+    });
 
-allAnticheats.forEach(anticheat => {
-    const option = document.createElement('option');
-    option.value = anticheat;
-    option.textContent = anticheat;
-    serverFilter.appendChild(option);
-});
+    allAnticheats.forEach(anticheat => {
+        const option = document.createElement('option');
+        option.value = anticheat;
+        option.textContent = anticheat;
+        serverFilter.appendChild(option);
+    });
 }
 
 // Function to toggle outdated configs visibility
