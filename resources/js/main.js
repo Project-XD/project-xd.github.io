@@ -25,7 +25,7 @@ const presetColors = {
 const configs = [
 {
     id: 1,
-    name: "BlocksMC Blatant",
+    name: "under BMC",
     creator: "pzuo",
     updated: "10/4/2024",
     tags: ["Blatant", "BlocksMC", "recommended"],
@@ -66,7 +66,7 @@ const configs = [
     updated: "10/4/2024",
     tags: ["Blatant", "Ghost", "recommended"],
     anticheat: "Grim",
-    description: ["Bypasses fully, no flags.<b><br />Killaura : R<br />Speed : G<br />All Visuals : - (minus)</b>"],
+    description: ["Bypasses fully, no flags.<b><br />Killaura : R<br />Speed : G<br />Gui: RShift<br />All Visuals : - (minus)</b>"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/VimeMC.png",
     ip: "mc.vimemc.net",
     downloadLink: "https://github.com/user-attachments/files/17251234/VMCPit-qloha.json",
@@ -88,6 +88,24 @@ const configs = [
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/HylexMC.png",
     ip: "play.hylexmc.com",
     downloadLink: "https://github.com/user-attachments/files/17266882/HylexMC-qloha.json",
+    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
+    colors: {
+        text: "#000000", // Text
+        accent: "#36fff5", // Accent
+        header: "#f70cf0" // Header
+    }
+},
+{
+    id: 5,
+    name: "clk BMC",
+    creator: "celakk",
+    updated: "10/5/2024",
+    tags: ["Blatant", "recommended"],
+    anticheat: ["Verus", "Updated NCP"],
+    description: ["Fine tuned config for flag less gameplay. Made for skywars.<b><br />GUI : RShift<br />Killaura : Q<br />Scaffold : V<br />ChestStealer : B<br />Speed : Z</b>"],
+    cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/BlocksMC.png",
+    ip: "BlocksMC.com",
+    downloadLink: "https://github.com/user-attachments/files/17267030/BlocksMC-clk.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
     colors: {
         text: "#000000", // Text
