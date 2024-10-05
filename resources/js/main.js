@@ -224,9 +224,3 @@ function filterConfigs() {
     populateConfigs();
 }
 
-const footer = document.getElementById('footer');
-const toggleFooterButton = document.getElementById('toggle-footer');
-
-toggleFooterButton.addEventListener('click', () => {
-  footer.classList.toggle('show');
-});
