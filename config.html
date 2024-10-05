@@ -36,7 +36,7 @@
                  ${config.otherButtons.map(button => `
                      <a href="${button[0]}" class="download-button"  target="_blank" style="border-color: ${config.colors.accent};">${button[1]}</a>
                 `).join('')}
-            </div>f=
+            </div>
          `;
     }
 
@@ -50,6 +50,8 @@
                 <p>${config.description}</p>
                 <h3>Tags:</h3>
                 <ul>${config.tags.map(tag => `<li style="border-color: ${config.colors.accent};">${tag}</li>`).join('')}</ul>
+                <h3>Anticheat:</h3>
+                <ul>${config.anticheats.map(tag => `<li style="border-color: ${config.colors.accent};">${anticheat}</li>`).join('')}</ul>
             </div>
         </div>
         <a href="${config.downloadLink}" class="download-button" style="border-color: ${config.colors.accent};"  target="_blank">Download </a>
