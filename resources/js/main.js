@@ -28,7 +28,7 @@ const configs = [
     name: "BlocksMC Blatant",
     creator: "pzuo",
     tags: ["Blatant", "BlocksMC", "recommended"],
-    server: "BlocksMC",
+    anticheat: ["Verus", "Updated NCP"],
     description: ["Everything bypasses, supports high and low ping.<br />BedAura : G<br />ChestStealer : P<br />Gui : RSHIFT<br />InvManager : P<br />KillAura : R<br />Scaffold : LMENU/LALT<br />Speed : X"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/blocksmc.png",
     ip: "play.BlocksMC.com",
@@ -45,7 +45,7 @@ const configs = [
     name: "100% Legit",
     creator: "qloha",
     tags: ["Ghost", "recommended"],
-    server: "Any",
+    anticheat: "Any",
     description: ["100% Legit. Nothing enabled."],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/any.png",
     ip: "Any",
@@ -62,7 +62,7 @@ const configs = [
     name: "VineMC Pit",
     creator: "qloha",
     tags: ["Blatant", "Ghost", "recommended"],
-    server: "VimeMC The Pit",
+    anticheat: "Grim",
     description: ["Bypasses fully, no flags.<br />Killaura : R<br />Speed : G<br />All Visuals : - (minus)"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/VimeMC.png",
     ip: "mc.vimemc.net",
@@ -82,13 +82,13 @@ let hideOutdated = true;
 document.addEventListener("DOMContentLoaded", () => {
 populateConfigs();
 populateTagFilter();
-populateServerFilter();
+populateAnticheatFilter();
 });
 
 // Function to populate configs
 function populateConfigs(filteredTag = "all") {
     const selectedTag = document.getElementById('tagFilter').value;
-    const selectedServer = document.getElementById('serverFilter').value;
+    const selectedAnticheat = document.getElementById('serverFilter').value;
     const configList = document.getElementById('configList');
     configList.innerHTML = '';
 
@@ -104,7 +104,7 @@ function populateConfigs(filteredTag = "all") {
         }
 
         if ((selectedTag === "all" || config.tags.includes(selectedTag)) &&
-            (selectedServer === "all" || config.server === selectedServer)) {
+            (selectedAnticheat === "all" || config.anticheat === selectedAnticheat)) {
             const configDiv = document.createElement('div');
             configDiv.className = 'config';
 
@@ -116,7 +116,7 @@ function populateConfigs(filteredTag = "all") {
             configDiv.innerHTML = `
                 <img src="${config.cover}" alt="qloha did an oopsie sorry -> ${config.name}">
                 <h2>${config.name}</h2>
-                <p>${config.server}</p>
+                <p>${config.anticheat}</p>
                 <p>${config.creator}</p>
                 <a href="config?id=${config.id}">View Config</a>
                 `;
@@ -145,18 +145,18 @@ allTags.forEach(tag => {
 });
 }
 
-// Function to populate server filter options
-function populateServerFilter() {
+// Function to populate anticheat filter options
+function populateAnticheatFilter() {
     const serverFilter = document.getElementById('serverFilter');
-    let allServers = new Set();
+    let allAnticheats = new Set();
     configs.forEach(config => {
-        allServers.add(config.server);
+        allAnticheats.add(config.anticheat);
 });
 
-allServers.forEach(server => {
+allAnticheats.forEach(anticheat => {
     const option = document.createElement('option');
-    option.value = server;
-    option.textContent = server;
+    option.value = anticheat;
+    option.textContent = anticheat;
     serverFilter.appendChild(option);
 });
 }
