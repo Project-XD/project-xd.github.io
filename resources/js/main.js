@@ -31,7 +31,7 @@ const configs = [
     tags: ["Blatant", "BlocksMC", "recommended"],
     anticheat: ["Verus", "Updated NCP"],
     description: ["Everything bypasses, supports high and low ping.<b><br />BedAura : G<br />ChestStealer : P<br />Gui : RSHIFT<br />InvManager : P<br />KillAura : R<br />Scaffold : LMENU/LALT<br />Speed : X</b>"],
-    cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/blocksmc.png",
+    cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/BlocksMC.png",
     ip: "play.BlocksMC.com",
     downloadLink: "https://github.com/user-attachments/files/17265081/BlocksMC-under.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
