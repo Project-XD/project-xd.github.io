@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Configs</title>
-        <link id="favicon" rel="icon" href="resources/icons/logo.png" type="image/x-icon">
-        <link rel="stylesheet" href="resources/styles/index.css">
-        <meta name="description" content="The official Raven XD configs website.">
-        <meta property="og:image" content="https://i.ibb.co/FnV9vm1/logo.png" />
-        <meta property="og:image:width" content="512" />
-        <meta property="og:image:height" content="512" />
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configs - Project XD</title>
+    <link id="favicon" rel="icon" href="resources/icons/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="resources/styles/index.css">
+    <meta content="" name="description"/>
+    <meta content="Configs - Project XD" property="og:title"/>
+    <meta content="The official Raven XD config website." property="og:description"/>
+    <meta content="https://i.ibb.co/FnV9vm1/logo.png" property="og:image"/>
+    <meta content="Configs - Project XD" property="twitter:title"/>
+    <meta content="The official Raven XD config website." property="twitter:description"/>
+    <meta content="https://i.ibb.co/FnV9vm1/logo.png" property="twitter:image"/>
+    <meta property="og:type" content="website"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+</head>
 <body>
     <header id="configHeader">
         <h1 id="configTitle">Config Details</h1>
@@ -62,7 +68,7 @@
         <a href="${config.downloadLink}" class="download-button" style="border-color: ${config.colors.accent};"  target="_blank">Download </a>
         ${otherButtonsContent} <!-- Add the other buttons here -->
     `;
-    document.title = config.name + " - " + config.creator;
+    document.title = config.name + " - Project XD";
     document.querySelectorAll('.screenshots img').forEach(function(img) {
         img.style.borderColor = config.colors.accent;
     });
