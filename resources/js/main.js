@@ -85,7 +85,6 @@ populateTagFilter();
 populateAnticheatFilter();
 });
 
-// Function to populate configs
 function populateConfigs(filteredTag = "all") {
     const selectedTag = document.getElementById('tagFilter').value;
     const selectedAnticheat = document.getElementById('serverFilter').value;
@@ -104,7 +103,7 @@ function populateConfigs(filteredTag = "all") {
         }
 
         if ((selectedTag === "all" || config.tags.includes(selectedTag)) &&
-            (selectedAnticheat === "all" || config.anticheat === selectedAnticheat)) {
+            (selectedAnticheat === "all" || (Array.isArray(config.anticheat) && config.anticheat.includes(selectedAnticheat)))) {
             const configDiv = document.createElement('div');
             configDiv.className = 'config';
 
@@ -113,10 +112,17 @@ function populateConfigs(filteredTag = "all") {
                 configDiv.classList.add('recommended');
             }
 
+            let anticheatText = '';
+            if (Array.isArray(config.anticheat)) {
+                anticheatText = config.anticheat.join('<br />');
+            } else {
+                anticheatText = config.anticheat;
+            }
+
             configDiv.innerHTML = `
                 <img src="${config.cover}" alt="qloha did an oopsie sorry -> ${config.name}">
                 <h2>${config.name}</h2>
-                <p>${config.anticheat}</p>
+                <p>${anticheatText}</p>
                 <p>${config.creator}</p>
                 <a href="config?id=${config.id}">View Config</a>
                 `;
