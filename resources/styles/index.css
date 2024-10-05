@@ -114,3 +114,32 @@ main {
     border: 2px solid rgb(225, 0, 255);
     box-shadow: rgb(234, 0, 255) 0px 0px 8px;
 }
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    display: none; /* hide footer by default */
+  }
+  
+  #footer.show {
+    display: block;
+  }
+  
+  #toggle-footer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  #toggle-footer:hover {
+    background-color: #444;
+  }
