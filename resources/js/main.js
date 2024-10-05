@@ -103,7 +103,7 @@ function populateConfigs(filteredTag = "all") {
         }
 
         if ((selectedTag === "all" || config.tags.includes(selectedTag)) &&
-            (selectedAnticheat === "all" || (Array.isArray(config.anticheat) && config.anticheat.includes(selectedAnticheat)))) {
+            (selectedAnticheat === "all" || (Array.isArray(config.anticheat) && config.anticheat.includes(selectedAnticheat)) || config.anticheat === selectedAnticheat)) {
             const configDiv = document.createElement('div');
             configDiv.className = 'config';
 
