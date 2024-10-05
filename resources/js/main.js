@@ -87,7 +87,7 @@ const configs = [
     description: ["Bypasses fully, no flags.<b><br />Killaura : R<br />Speed : G<br />Velocity : V<br />Scaffold : H<br /> Bedaura : X<br />All Visuals : - (minus)</b>"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/HylexMC.png",
     ip: "play.hylexmc.com",
-    downloadLink: "https://github.com/user-attachments/files/17266729/HylexMC-qloha.json",
+    downloadLink: "https://github.com/user-attachments/files/17266882/HylexMC-qloha.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
     colors: {
         text: "#000000", // Text
