@@ -27,7 +27,7 @@ const configs = [
     id: 1,
     name: "under BMC",
     creator: "pzuo",
-    updated: "10/4/2024",
+    updated: "10/6/2024",
     tags: ["Blatant", "BlocksMC", "recommended"],
     anticheat: ["Verus", "Updated NCP"],
     description: ["Semi blatant, everything bypasses, low/high ping support, and lasts 25-40mins!<b><br />BedAura - V<br />ChestStealer - P<br />Gui - END<br />InvManager - P<br />KillAura - R<br />Scaffold - LALT<br />Speed - X<br />Antivoid : U</b>"],
