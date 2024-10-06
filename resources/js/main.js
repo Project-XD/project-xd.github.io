@@ -99,13 +99,13 @@ const configs = [
     id: 5,
     name: "clk BMC",
     creator: "celakk",
-    updated: "10/5/2024",
+    updated: "10/6/2024",
     tags: ["Blatant", "recommended"],
     anticheat: ["Verus", "Updated NCP"],
-    description: ["Fine tuned config for flag less gameplay. Made for skywars.<b><br />GUI : RShift<br />Killaura : Q<br />Scaffold : V<br />ChestStealer : B<br />Speed : Z</b>"],
+    description: ["Fine tuned config for flag less gameplay. Made for skywars.<b><br />GUI : RShift<br />Killaura : Q<br />Scaffold : V<br />ChestStealer : B<br />InvManager : B<br />BedAura : H<br />Speed : Z</b>"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/BlocksMC.png",
     ip: "BlocksMC.com",
-    downloadLink: "https://github.com/user-attachments/files/17267030/BlocksMC-clk.json",
+    downloadLink: "https://github.com/user-attachments/files/17269691/BlocksMC-clk.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
     colors: {
         text: "#000000", // Text
