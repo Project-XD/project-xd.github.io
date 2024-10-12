@@ -108,7 +108,7 @@ const configs = [
     downloadLink: "https://github.com/user-attachments/files/17348120/BlocksMC-clk.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
     colors: {
-        text: "#7700ff", // Text
+        text: "#ff0000", // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
@@ -118,7 +118,7 @@ const configs = [
     name: "VimeMC - Pit",
     creator: "pzuo",
     updated: "10/11/2024",
-    tags: ["Ghost", "Blatant", "reccomended"],
+    tags: ["Ghost", "Blatant", "reccommended"],
     anticheat: ["Grim"],
     description: ["Mainly for 150~ ping with staff on. Has four block long reach.<b><br />Killaura - R<br />Speed - X<br />GUI - RShift</b>"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/VimeMC.png",
