@@ -34,7 +34,7 @@ const configs = [
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/BlocksMC.png",
     ip: "play.BlocksMC.com",
     downloadLink: "https://github.com/user-attachments/files/17270291/BlocksMC-under.json",
-    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
+    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://lootdest.org/s?abc853f3", "Download Raven XD"]],
     colors: {
         text: "#000000", // Text
         accent: "#36fff5", // Accent
@@ -52,7 +52,7 @@ const configs = [
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/any.png",
     ip: "Any",
     downloadLink: "https://github.com/user-attachments/files/17238894/Legit-qloha.json",
-    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
+    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://lootdest.org/s?abc853f3", "Download Raven XD"]],
     colors: {
         text: "#ffffff", // Text
         accent: "#36fff5", // Accent
@@ -70,7 +70,7 @@ const configs = [
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/VimeMC.png",
     ip: "mc.vimemc.net",
     downloadLink: "https://github.com/user-attachments/files/17251234/VMCPit-qloha.json",
-    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
+    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://lootdest.org/s?abc853f3", "Download Raven XD"]],
     colors: {
         text: "#00ff04", // Text
         accent: "#36fff5", // Accent
@@ -88,7 +88,7 @@ const configs = [
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/HylexMC.png",
     ip: "play.hylexmc.com",
     downloadLink: "https://github.com/user-attachments/files/17266882/HylexMC-qloha.json",
-    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
+    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://lootdest.org/s?abc853f3", "Download Raven XD"]],
     colors: {
         text: "#ff00f2", // Text
         accent: "#36fff5", // Accent
@@ -106,7 +106,7 @@ const configs = [
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/BlocksMC.png",
     ip: "BlocksMC.com",
     downloadLink: "https://github.com/user-attachments/files/17348120/BlocksMC-clk.json",
-    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
+    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://lootdest.org/s?abc853f3", "Download Raven XD"]],
     colors: {
         text: "#ff0000", // Text
         accent: "#36fff5", // Accent
@@ -124,7 +124,7 @@ const configs = [
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/VimeMC.png",
     ip: "mc.vimemc.net",
     downloadLink: "https://github.com/user-attachments/files/17348121/VimeMCPit-under.json",
-    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
+    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://lootdest.org/s?abc853f3", "Download Raven XD"]],
     colors: {
         text: "#b5b5b5", // Text
         accent: "#36fff5", // Accent
