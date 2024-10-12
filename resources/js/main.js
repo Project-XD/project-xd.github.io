@@ -46,7 +46,7 @@ const configs = [
     name: "100% Legit",
     creator: "qloha",
     updated: "9/27/2024",
-    tags: ["Ghost", "recommended"],
+    tags: ["Ghost"],
     anticheat: "Any",
     description: ["100% legit, with nothing enabled.<b><br />No binds</b>"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/any.png",
@@ -54,7 +54,7 @@ const configs = [
     downloadLink: "https://github.com/user-attachments/files/17238894/Legit-qloha.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
     colors: {
-        text: "#000000", // Text
+        text: white, // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
@@ -72,7 +72,7 @@ const configs = [
     downloadLink: "https://github.com/user-attachments/files/17251234/VMCPit-qloha.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
     colors: {
-        text: "#000000", // Text
+        text: lime, // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
@@ -90,7 +90,7 @@ const configs = [
     downloadLink: "https://github.com/user-attachments/files/17266882/HylexMC-qloha.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
     colors: {
-        text: "#000000", // Text
+        text: pink, // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
@@ -105,10 +105,28 @@ const configs = [
     description: ["Fine tuned config for flag less gameplay. Made for skywars.<b><br />GUI - RShift<br />Killaura - Q<br />Scaffold - V<br />ChestStealer - B<br />InvManager - B<br />BedAura - H<br />Speed - Z</b>"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/BlocksMC.png",
     ip: "BlocksMC.com",
-    downloadLink: "https://github.com/user-attachments/files/17285422/BlocksMC-clk.json",
+    downloadLink: "https://github.com/user-attachments/files/17348120/BlocksMC-clk.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
     colors: {
-        text: "#000000", // Text
+        text: purple, // Text
+        accent: "#36fff5", // Accent
+        header: "#f70cf0" // Header
+    }
+},
+{
+    id: 6,
+    name: "VimeMC - Pit",
+    creator: "pzuo",
+    updated: "10/11/2024",
+    tags: ["Ghost", "Blatant", "reccomended"],
+    anticheat: ["Grim"],
+    description: ["Mainly for 150~ ping with staff on. Has four block long reach.<b><br />Killaura - R<br />Speed - X<br />GUI - RShift</b>"],
+    cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/VimeMC.png",
+    ip: "mc.vimemc.net",
+    downloadLink: "https://github.com/user-attachments/files/17348121/VimeMCPit-under.json",
+    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://github.com/xia-mc/Raven-XD/releases", "Download Raven XD"]],
+    colors: {
+        text: lightgray, // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
