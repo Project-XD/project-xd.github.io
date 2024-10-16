@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="resources/styles/config.css">
     <meta content="" name="description"/>
     <meta content="${config.name} - Raven XD" property="og:title"/>
-    <meta content="The official Raven XD config website.</ br>Join the community! https://dsc.gg/RavenXD</ br>https://RavenXD.site/config?id={config.id}</ br>View ${config.creator}'s config here." property="og:description"/>
-    <meta content="${config.cover}" property="og:image"/>
+    <meta content="The official Raven XD config website.</ br>https://dsc.gg/RavenXD</ br>https://RavenXD.site<br />Raven B4, but for those who can't afford it.<br />Raven B4, but not only for Hypixel." property="og:description"/>
+    <meta content="https://i.ibb.co/FnV9vm1/logo.png" property="og:image"/>
     <meta content="${config.name} - Raven XD" property="twitter:title"/>
-    <meta content="The official Raven XD config website.</ br>Join the community! https://dsc.gg/RavenXD</ br>https://RavenXD.site/config?id={config.id}</ br>View ${config.creator}'s config here." property="twitter:description"/>
-    <meta content="${config.cover}" property="twitter:image"/>
+    <meta content="The official Raven XD config website.</ br>https://dsc.gg/RavenXD</ br>https://RavenXD.site<br />Raven B4, but for those who can't afford it.<br />Raven B4, but not only for Hypixel." property="twitter:description"/>
+    <meta content="https://i.ibb.co/FnV9vm1/logo.png" property="twitter:image"/>
     <meta property="og:type" content="website"/>
     <meta content="summary_large_image" name="twitter:card"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
@@ -69,6 +69,7 @@
         <a href="${config.downloadLink}" class="download-button" style="border-color: ${config.colors.accent};"  target="_blank">Download </a>
         ${otherButtonsContent} <!-- Add the other buttons here -->
     `;
+    document.title = config.name + " - Project XD";
     document.querySelectorAll('.screenshots img').forEach(function(img) {
         img.style.borderColor = config.colors.accent;
     });
