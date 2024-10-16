@@ -105,7 +105,7 @@ const configs = [
     description: ["Fine tuned config for flag less gameplay. Made for skywars.<b><br />GUI - RShift<br />Killaura - Q<br />Scaffold - V<br />ChestStealer - B<br />InvManager - B<br />BedAura - H<br />Speed - Z</b>"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/BlocksMC.png",
     ip: "BlocksMC.com",
-    downloadLink: "https://github.com/user-attachments/files/17348120/BlocksMC-clk.json",
+    downloadLink: "https://github.com/user-attachments/files/17402408/BlocksMC-clk.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://lootdest.org/s?abc853f3", "Download Raven XD"]],
     colors: {
         text: "#ff0000", // Text
