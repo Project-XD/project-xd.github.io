@@ -99,7 +99,7 @@ const configs = [
     id: 5,
     name: "clk BMC",
     creator: "celakk",
-    updated: "10/7/2024",
+    updated: "10/16/2024",
     tags: ["Blatant", "recommended"],
     anticheat: ["Verus", "Updated NCP"],
     description: ["Fine tuned config for flag less gameplay. Made for skywars.<b><br />GUI - RShift<br />Killaura - Q<br />Scaffold - V<br />ChestStealer - B<br />InvManager - B<br />BedAura - H<br />Speed - Z</b>"],
