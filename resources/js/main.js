@@ -118,7 +118,7 @@ const configs = [
     name: "VimeMC - Pit",
     creator: "pzuo",
     updated: "10/11/2024",
-    tags: ["Ghost", "Blatant", "reccommended"],
+    tags: ["Ghost", "Blatant", "recommended"],
     anticheat: ["Grim"],
     description: ["Mainly for 150~ ping with staff on. Has four block long reach.<b><br />Killaura - R<br />Speed - X<br />GUI - RShift</b>"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/VimeMC.png",
