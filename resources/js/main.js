@@ -132,63 +132,118 @@ const configs = [
     }
 }
 ];
-// Boolean flag to hide configs with "outdated" tag
+
+const searchFields = ["creator", "name", "anticheat", "ip", "tag"];
 let hideOutdated = true;
 
-// Populate configs and filter options
 document.addEventListener("DOMContentLoaded", () => {
-populateConfigs();
-populateTagFilter();
-populateAnticheatFilter();
+    populateConfigs();
+    populateTagFilter();
+    populateAnticheatFilter();
+    setupSearchBar();
 });
 
-function populateConfigs(filteredTag = "all") {
+// Setup the search bar with event listeners
+function setupSearchBar() {
+    const searchBar = document.getElementById("searchBar");
+    searchBar.addEventListener("input", onSearchInput);
+    searchBar.addEventListener("input", populateConfigs); // Update configs on search input
+}
+
+// Provide autocompletion suggestions
+function onSearchInput(event) {
+    const input = event.target.value;
+    const lastWord = input.split(" ").pop();
+
+    // Display autocomplete suggestions
+    if (lastWord.includes(":")) {
+        showAutocompleteSuggestions(lastWord);
+    }
+}
+
+// Autocomplete functionality (dummy implementation)
+function showAutocompleteSuggestions(lastWord) {
+    const field = lastWord.split(":")[0];
+    if (searchFields.includes(field)) {
+        console.log("Suggestions for " + field + ": <autocomplete values here>");
+        // Implement actual autocomplete dropdown UI here if needed
+    }
+}
+
+// Populate configs based on search criteria
+function populateConfigs() {
+    const configList = document.getElementById("configList");
+    configList.innerHTML = '';
+    const searchCriteria = parseSearchQuery(document.getElementById("searchBar").value);
     const selectedTag = document.getElementById('tagFilter').value;
     const selectedAnticheat = document.getElementById('serverFilter').value;
-    const configList = document.getElementById('configList');
-    configList.innerHTML = '';
 
     configs.forEach(config => {
-        // Skip configs with "hidden" tag
-        if (config.tags.includes("hidden")) {
-            return;
-        }
-
-        // Skip configs with "outdated" tag if hideOutdated is true
         if (hideOutdated && config.tags.includes("outdated")) {
             return;
         }
 
-        if ((selectedTag === "all" || config.tags.includes(selectedTag)) &&
-            (selectedAnticheat === "all" || (Array.isArray(config.anticheat) && config.anticheat.includes(selectedAnticheat)) || config.anticheat === selectedAnticheat)) {
+        if (matchesSearchCriteria(config, searchCriteria) &&
+            (selectedTag === "all" || config.tags.includes(selectedTag)) &&
+            (selectedAnticheat === "all" || 
+             (Array.isArray(config.anticheat) && config.anticheat.includes(selectedAnticheat)) || 
+             config.anticheat === selectedAnticheat)) {
+            
             const configDiv = document.createElement('div');
             configDiv.className = 'config';
-
-            // Apply rainbow border if config is recommended
-            if (config.tags.includes("recommended")) {
-                configDiv.classList.add('recommended');
-            }
-
-            let anticheatText = '';
-            if (Array.isArray(config.anticheat)) {
-                anticheatText = config.anticheat.join('<br />');
-            } else {
-                anticheatText = config.anticheat;
-            }
-
             configDiv.innerHTML = `
-                <img src="${config.cover}" alt="qloha did an oopsie sorry -> ${config.name}">
+                <img src="${config.cover}" alt="${config.name}">
                 <h2>${config.name}</h2>
-                <p>${anticheatText}</p>
-                <p>${config.creator}</p>
+                <p>Anticheat: ${Array.isArray(config.anticheat) ? config.anticheat.join(", ") : config.anticheat}</p>
+                <p>Creator: ${config.creator}</p>
+                <p>IP: ${config.ip}</p>
                 <a href="config?id=${config.id}">View Config</a>
-                `;
+            `;
             configList.appendChild(configDiv);
         }
     });
 }
 
+// Parse search query
+function parseSearchQuery(query) {
+    const criteria = {};
+    const pairs = query.split(" ");
+    pairs.forEach(pair => {
+        const [field, value] = pair.split(":");
+        if (searchFields.includes(field) && value) {
+            criteria[field] = value.toLowerCase();
+        }
+    });
+    return criteria;
+}
 
+// Check if config matches search criteria
+function matchesSearchCriteria(config, criteria) {
+    for (const field in criteria) {
+        if (field === "tag") {
+            if (!config.tags.some(tag => tag.toLowerCase().includes(criteria[field]))) {
+                return false;
+            }
+        } else if (field === "anticheat") {
+            const anticheats = Array.isArray(config.anticheat) ? config.anticheat : [config.anticheat];
+            if (!anticheats.some(anticheat => anticheat.toLowerCase().includes(criteria[field]))) {
+                return false;
+            }
+        } else if (!config[field].toLowerCase().includes(criteria[field])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// Toggle outdated configs visibility
+function toggleOutdatedConfigs() {
+    hideOutdated = !hideOutdated;
+    document.getElementById('toggleOutdated').textContent = hideOutdated ? "Hide Outdated" : "Show Outdated";
+    populateConfigs();
+}
+
+// Populate tag filter
 function populateTagFilter() {
     const tagFilter = document.getElementById('tagFilter');
     let allTags = new Set();
@@ -198,17 +253,17 @@ function populateTagFilter() {
                 allTags.add(tag);
             }
         });
-});
+    });
 
-allTags.forEach(tag => {
-    const option = document.createElement('option');
-    option.value = tag;
-    option.textContent = tag;
-    tagFilter.appendChild(option);
-});
+    allTags.forEach(tag => {
+        const option = document.createElement('option');
+        option.value = tag;
+        option.textContent = tag;
+        tagFilter.appendChild(option);
+    });
 }
 
-// Function to populate anticheat filter options
+// Populate anticheat filter
 function populateAnticheatFilter() {
     const serverFilter = document.getElementById('serverFilter');
     let allAnticheats = new Set();
@@ -229,16 +284,3 @@ function populateAnticheatFilter() {
         serverFilter.appendChild(option);
     });
 }
-
-// Function to toggle outdated configs visibility
-function toggleOutdatedConfigs() {
-    hideOutdated = !hideOutdated;
-    document.getElementById('toggleOutdated').textContent = hideOutdated ? "Hide Outdated" : "Show Outdated";
-    filterConfigs();
-}
-
-// Function to filter configs based on selected tag and game
-function filterConfigs() {
-    populateConfigs();
-}
-
