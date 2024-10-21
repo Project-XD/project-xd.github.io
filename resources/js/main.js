@@ -227,14 +227,27 @@ function populateConfigs() {
     setupScrollAnimations(); // Re-initialize animations after updating the configs
 }
 
-// Function to initialize scroll animations using IntersectionObserver
+// Toggle between light and dark modes
+function toggleTheme() {
+    const body = document.body;
+    const themeToggleButton = document.getElementById('themeToggle');
+    
+    body.classList.toggle('dark-mode');
+    
+    if (body.classList.contains('dark-mode')) {
+        themeToggleButton.textContent = 'Light Mode';
+    } else {
+        themeToggleButton.textContent = 'Dark Mode';
+    }
+}
+
+// IntersectionObserver setup for scroll animations
 function setupScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('show');
-            } else {
-                entry.target.classList.remove('show');
+                observer.unobserve(entry.target); // Animate once
             }
         });
     });

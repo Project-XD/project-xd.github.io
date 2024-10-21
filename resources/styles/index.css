@@ -1,149 +1,211 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans&display=swap');
 
+:root {
+    --bg-color: #f0f0f5;
+    --text-color: #333;
+    --card-bg-color: white;
+    --card-text-color: #333;
+    --accent-color: #008cff;
+    --header-bg-color: rgba(255, 255, 255, 0.8);
+    --footer-bg-color: rgba(255, 255, 255, 0.8);
+    --button-bg-color: #008cff;
+    --button-text-color: white;
+}
+
+.dark-mode {
+    --bg-color: #2b2b2b;
+    --text-color: #e5e5e5;
+    --card-bg-color: #333;
+    --card-text-color: #e5e5e5;
+    --accent-color: #00aaff;
+    --header-bg-color: rgba(43, 43, 43, 0.9);
+    --footer-bg-color: rgba(43, 43, 43, 0.9);
+    --button-bg-color: #00aaff;
+    --button-text-color: white;
+}
+
+/* Body and Layout Styling */
 body {
     font-family: 'Google Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: hsla(0, 0%, 100%, 1);
-    background-image:
-        linear-gradient(120deg, hsla(240, 100%, 70%, 0.5) 0%, hsla(240, 100%, 60%, 0.5) 30%, hsla(240, 100%, 50%, 0.5) 50%, hsla(240, 100%, 40%, 0.5) 70%, hsla(240, 100%, 30%, 0.5) 100%),
-        linear-gradient(30deg, hsla(0, 100%, 80%, 0.5) 0%, hsla(0, 100%, 60%, 0.5) 30%, hsla(0, 100%, 40%, 0.5) 50%, hsla(0, 100%, 20%, 0.5) 70%, hsla(0, 100%, 0%, 0.5) 100%);
-    background-attachment: fixed;
-    background-size: cover;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-header, .config, header button {
-    background-color: #8b8b8b70;
-    backdrop-filter: blur(10px);
-}
-
+/* Header Styling */
 header {
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-    border-bottom: 2px solid rgb(0, 0, 0);            
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-bg-color);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
 }
 
+/* Flex container to center the search bar and buttons */
+.header-controls {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    gap: 1rem;
+    width: 100%; /* Make sure the controls take up the full width */
+}
+
+/* Flex container for the header (logo links on the left) */
+/* Flex container for the header (logo links on the left) */
+.header-links {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Logo icon size - Ensure that the logos are appropriately sized */
+.icon {
+    width: 30px; /* Set a fixed width */
+    height: 30px; /* Set a fixed height */
+    transition: transform 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.2); /* Add a hover effect */
+}
+
+/* Center the search bar and buttons */
 #searchBar {
-    width: 60%;
-    max-width: 600px;
-    padding: 0.5rem;
-    margin: 0.5rem auto;
+    width: 300px;
+    padding: 0.7rem;
     border-radius: 5px;
-    border: 2px solid rgb(0, 0, 0);
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+    transition: box-shadow 0.3s ease;
 }
 
 #searchBar:focus {
-    border-color: #555;
+    box-shadow: 0 0 10px rgba(0, 150, 255, 0.5);
     outline: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
+/* Button Styles */
 header button {
-    color: white;
+    padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
-    padding: 0.5rem;
-    margin-left: 1rem;
-    border: 2px solid rgb(0, 0, 0); 
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 header button:hover {
-    background-color: #555;
-    scale: 1.1;
-    border: 2px solid rgb(0, 0, 0); 
+    background-color: #006bbf;
+    transform: scale(1.05);
 }
 
+/* Main Content Styling */
 main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 1rem;
+    margin-top: 5rem; /* To account for fixed header */
+    padding: 2rem;
 }
 
-.config { 
-    border: 1px solid #ddd;
-    margin: 1rem;
-    padding: 1rem;
-    width: 200px;
-    text-align: center;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-    border: 2px solid rgb(0, 0, 0); 
+/* Config Card Styling */
+.config {
+    background-color: var(--card-bg-color);
     border-radius: 12px;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 1.5rem;
+    width: 220px;
+    text-align: center;
+    transform: scale(0.95);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(20%);
 }
 
-@keyframes colorChange {
-    0% { background-color: #8b8b8b70; }
-    50% { background-color: #535353a9; }
-    100% { background-color: #8b8b8b70; }
+.config.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
 }
 
+/* Config Hover Effects */
 .config:hover {
-    animation: colorChange 3s infinite;
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
 }
 
+/* Config Image */
 .config img {
     width: 100%;
-    height: 200px;
+    height: 140px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
 }
 
+/* Config Text */
 .config h2 {
     font-size: 1.2rem;
     margin: 0.5rem 0;
+    color: var(--accent-color);
 }
 
 .config p {
-    color: #383838;
+    color: var(--card-text-color);
 }
 
 .config a {
     display: inline-block;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
     color: #fff;
+    border-radius: 5px;
     text-decoration: none;
-    border: 2px solid rgba(0, 0, 0, 0.897);
-    border-radius: 4px; 
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.39);
-    text-shadow: 0 0 3px rgb(0, 0, 0);
-    transition: transform 0.5s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .config a:hover {
-    background-color: #555;
+    background-color: #006bbf;
     transform: scale(1.1);
 }
 
-.recommended {
-    border: 2px solid rgb(225, 0, 255);
-    box-shadow: rgb(234, 0, 255) 0px 0px 8px;
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--footer-bg-color);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
 }
 
-.active-command {
-    display: inline-block;
-    background-color: #555;
-    color: #fff;
-    padding: 0.2rem 0.5rem;
-    border-radius: 5px;
-    margin-right: 0.5rem;
-    font-size: 0.9rem;
-}
-
+/* Scroll Animations */
 .hidden {
     opacity: 0;
-    filter: blur(5px);
+    filter: blur(10px);
     transform: translateY(20%);
-    transition: all 1s ease;
+    transition: all 0.8s ease-in-out;
 }
 
-.show {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
+.config:nth-child(odd) {
+    transition-delay: 0.2s;
+}
+
+.config:nth-child(even) {
+    transition-delay: 0.4s;
 }
