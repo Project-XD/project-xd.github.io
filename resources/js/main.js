@@ -219,9 +219,15 @@ function clearActiveSearchCommands() {
     populateConfigs(); // Refresh the displayed configs
 }
 
-// Populate configs based on search criteria
+// Updated populateConfigs function to handle null configList
 function populateConfigs() {
     const configList = document.getElementById("configList");
+    
+    // If configList is not found, exit the function
+    if (!configList) {
+        return;
+    }
+    
     configList.innerHTML = '';
 
     configs.forEach(config => {
