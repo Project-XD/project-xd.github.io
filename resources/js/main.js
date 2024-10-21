@@ -132,7 +132,6 @@ const configs = [
     }
 }
 ];
-// main.js
 
 const searchFields = ["creator", "name", "anticheat", "ip", "tag"];
 let hideOutdated = true;
@@ -142,7 +141,6 @@ let searchCriteria = {};
 document.addEventListener("DOMContentLoaded", () => {
     populateConfigs();
     setupSearchBar();
-    setupScrollAnimations();
 });
 
 // Setup the search bar with event listeners
@@ -224,11 +222,6 @@ function clearActiveSearchCommands() {
 // Populate configs based on search criteria
 function populateConfigs() {
     const configList = document.getElementById("configList");
-
-    if (!configList) {
-        return;
-    }
-
     configList.innerHTML = '';
 
     configs.forEach(config => {
@@ -238,7 +231,7 @@ function populateConfigs() {
 
         if (matchesSearchCriteria(config, searchCriteria)) {
             const configDiv = document.createElement('div');
-            configDiv.className = 'config hidden'; // Add the 'hidden' class initially
+            configDiv.className = 'config';
             configDiv.innerHTML = `
                 <img src="${config.cover}" alt="${config.name}">
                 <h2>${config.name}</h2>
@@ -250,23 +243,6 @@ function populateConfigs() {
             configList.appendChild(configDiv);
         }
     });
-
-    setupScrollAnimations(); // Re-initialize animations after updating the configs
-}
-
-// Function to initialize scroll animations using IntersectionObserver
-function setupScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                observer.unobserve(entry.target); // Animate once
-            }
-        });
-    });
-
-    const hiddenElements = document.querySelectorAll('.hidden');
-    hiddenElements.forEach((el) => observer.observe(el));
 }
 
 // Check if a config matches the current search criteria
