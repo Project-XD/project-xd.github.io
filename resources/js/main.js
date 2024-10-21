@@ -248,7 +248,6 @@ function populateConfigs() {
         if (matchesSearchCriteria(config, searchCriteria)) {
             const configDiv = document.createElement('div');
             configDiv.className = 'config hidden';
-            configDiv.className = 'config';
             configDiv.innerHTML = `
                 <img src="${config.cover}" alt="${config.name}">
                 <h2>${config.name}</h2>
