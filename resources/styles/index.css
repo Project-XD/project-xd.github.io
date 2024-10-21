@@ -11,7 +11,8 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
-header, .config, header button, header select {
+
+header, .config, header button {
     background-color: #8b8b8b70;
     backdrop-filter: blur(10px);
 }
@@ -24,10 +25,21 @@ header {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-header select {
+#searchBar {
+    width: 60%;
+    max-width: 600px;
     padding: 0.5rem;
-    margin-left: 1rem;
+    margin: 0.5rem auto;
     border-radius: 5px;
+    border: 2px solid rgb(0, 0, 0);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#searchBar:focus {
+    border-color: #555;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 header button {
@@ -37,7 +49,6 @@ header button {
     padding: 0.5rem;
     margin-left: 1rem;
     border: 2px solid rgb(0, 0, 0); 
-
 }
 
 header button:hover {
@@ -74,7 +85,6 @@ main {
 .config:hover {
     animation: colorChange 3s infinite;
 }
-
 
 .config img {
     width: 100%;
@@ -114,4 +124,3 @@ main {
     border: 2px solid rgb(225, 0, 255);
     box-shadow: rgb(234, 0, 255) 0px 0px 8px;
 }
-
