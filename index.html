@@ -19,21 +19,27 @@
 </head>
 <body>
     <header>
-        <div>
+        <div class="header-links">
             <a href="https://dsc.gg/ravenxd" target="_blank">
-                <img src="resources/icons/discord.png" alt="Discord" style="width: 30px; height: 30px;">
+                <img src="resources/icons/discord.png" alt="Discord" class="icon">
             </a>
             <a href="https://bstlar.com/3AL/Raven-XD" target="_blank">
-                <img src="resources/icons/github.png" alt="Github" style="width: 30px; height: 30px;">
+                <img src="resources/icons/github.png" alt="Github" class="icon">
             </a>
         </div>
-        <div>
-            <input id="searchBar" type="text" placeholder="Search... (Ex: creator: pzuo, name: VimeMC - Pit)" autocomplete="off" />
+        <div class="header-search">
+            <input id="searchBar" type="text" placeholder="Search... (Ex: creator: pzuo, name: VimeMC - Pit)" autocomplete="off">
             <button id="toggleOutdated" onclick="toggleOutdatedConfigs()">Hide Outdated</button>
         </div>
     </header>
+    
     <main id="configList">
     </main>
-    <script defer src="resources/js/main.js"></script>
+
+    <footer>
+        <p>© 2024 Raven XD. All rights reserved.</p>
+    </footer>
+
+    <script src="resources/js/main.js"></script>
 </body>
 </html>

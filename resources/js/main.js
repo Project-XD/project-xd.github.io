@@ -227,14 +227,13 @@ function populateConfigs() {
     setupScrollAnimations(); // Re-initialize animations after updating the configs
 }
 
-// Function to initialize scroll animations using IntersectionObserver
+// IntersectionObserver setup for scroll animations
 function setupScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('show');
-            } else {
-                entry.target.classList.remove('show');
+                observer.unobserve(entry.target); // Animate once
             }
         });
     });
