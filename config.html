@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${config.name} - Raven XD</title>
     <link id="favicon" rel="icon" href="resources/icons/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="resources/main.css">
+    <link rel="stylesheet" href="resources/styles/config.css">
     <meta content="" name="description"/>
     <meta content="RavenXD.site" property="og:title"/>
     <meta content="The official Raven XD config website." property="og:description"/>
@@ -15,72 +15,68 @@
     <meta content="https://i.ibb.co/FnV9vm1/logo.png" property="twitter:image"/>
     <meta property="og:type" content="website"/>
     <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
 </head>
 <body>
-    <header>
-        <div class="header-links">
-            <a href="https://dsc.gg/ravenxd" target="_blank">
-                <img src="resources/icons/discord.png" alt="Discord" class="icon">
-            </a>
-            <a href="https://bstlar.com/3AL/Raven-XD" target="_blank">
-                <img src="resources/icons/github.png" alt="Github" class="icon">
-            </a>
-        </div>
-        <div class="header-controls">
-            <button id="themeToggle">Dark Mode</button> <!-- Toggle button -->
-        </div>
+    <header id="configHeader">
+        <h1 id="configTitle">Config Details</h1>
         <a href="https://project-xd.github.io" class="back-button">Back</a>
     </header>
     
-    <main id="configDetails"></main>
-    
-    <footer>
-        <p>© 2024 Raven XD. All rights reserved.</p>
-    </footer>
 
-    <script src="resources/js/main.js"></script>
+    <main id="configDetails">
+    </main>
+    <script defer src="resources/js/main.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const params = new URLSearchParams(window.location.search);
-            const configId = parseInt(params.get("id"));
-            const config = configs.find(p => p.id === configId);
+    const params = new URLSearchParams(window.location.search);
+    const configId = parseInt(params.get("id"));
+    const config = configs.find(p => p.id === configId);
 
-            if (config) {
-                const configDetails = document.getElementById('configDetails');
+    // Apply config colors and gradient background
+    document.getElementById('configHeader').style.borderBottomColor = config.colors.header;
+    document.getElementById('configTitle').style.color = config.colors.text;
+    document.querySelector('.back-button').style.borderColor = config.colors.header;
 
-                let otherButtonsContent = '';
-                if (config.otherButtons && config.otherButtons.length > 0) {
-                    otherButtonsContent = `
-                        <div class="other-buttons">
-                            ${config.otherButtons.map(button => `
-                                <a href="${button[0]}" class="download-button" target="_blank" style="border-color: ${config.colors.accent};">${button[1]}</a>
-                            `).join('')}
-                        </div>
-                    `;
-                }
+    const configDetails = document.getElementById('configDetails');
 
-                configDetails.innerHTML = `
-                    <div class="config-info" style="color: ${config.colors.text};">
-                        <img src="${config.cover}" alt="${config.name}" class="cover-image">
-                        <div class="details">
-                            <h2>${config.name}</h2>
-                            <p>Creator: ${config.creator}</p>
-                            <p>Last updated: ${config.updated}</p>
-                            <p>IP: ${config.ip}</p>
-                            <p>${config.description}</p>
-                            <h3>Tags:</h3>
-                            <ul>${config.tags.map(tag => `<li style="border-color: ${config.colors.accent};">${tag}</li>`).join('')}</ul>
-                            <h3>Anticheat:</h3>
-                            <ul>${(Array.isArray(config.anticheat) ? config.anticheat : [config.anticheat]).map(anticheat => `<li style="border-color: ${config.colors.accent};">${anticheat}</li>`).join('')}</ul>
-                        </div>
-                    </div>
-                    <a href="${config.downloadLink}" class="download-button" style="border-color: ${config.colors.accent};" target="_blank">Download</a>
-                    ${otherButtonsContent}
-                `;
+    let otherButtonsContent = '';
+    if (config.otherButtons && config.otherButtons.length > 0) {
+        otherButtonsContent = `
+            <div class="other-buttons">
+                 ${config.otherButtons.map(button => `
+                     <a href="${button[0]}" class="download-button"  target="_blank" style="border-color: ${config.colors.accent};">${button[1]}</a>
+                `).join('')}
+            </div>
+         `;
+    }
 
-                document.title = config.name + " - Raven XD";
-            }
-        });
+    configDetails.innerHTML = `
+        <div class="config-info" style="color: ${config.colors.text};">
+            <img src="${config.cover}" alt="${config.name}" class="cover-image">
+            <div class="details">
+                <h2>${config.name}</h2>
+                <p>Creator: ${config.creator}</p>
+                <p>Last updated: ${config.updated}</p>
+                <p>IP: ${config.ip}</p>
+                <p>${config.description}</p>
+                <h3>Tags:</h3>
+                <ul>${config.tags.map(tag => `<li style="border-color: ${config.colors.accent};">${tag}</li>`).join('')}</ul>
+                <h3>Anticheat:</h3>
+                <ul>${(Array.isArray(config.anticheat) ? config.anticheat : [config.anticheat]).map(anticheat => `<li style="border-color: ${config.colors.accent};">${anticheat}</li>`).join('')}</ul>
+            </div>
+        </div>
+        <a href="${config.downloadLink}" class="download-button" style="border-color: ${config.colors.accent};"  target="_blank">Download </a>
+        ${otherButtonsContent} <!-- Add the other buttons here -->
+    `;
+    document.title = config.name + " - Project XD";
+    document.querySelectorAll('.screenshots img').forEach(function(img) {
+        img.style.borderColor = config.colors.accent;
+    });
+    document.querySelector('.cover-image').style.borderColor = config.colors.accent;
+});
+
     </script>
+    
 </body>
 </html>

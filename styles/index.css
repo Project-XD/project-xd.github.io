@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans&display=swap');
+
+body {
+    font-family: 'Google Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: hsla(0, 0%, 100%, 1);
+    background-image:
+        linear-gradient(120deg, hsla(240, 100%, 70%, 0.5) 0%, hsla(240, 100%, 60%, 0.5) 30%, hsla(240, 100%, 50%, 0.5) 50%, hsla(240, 100%, 40%, 0.5) 70%, hsla(240, 100%, 30%, 0.5) 100%),
+        linear-gradient(30deg, hsla(0, 100%, 80%, 0.5) 0%, hsla(0, 100%, 60%, 0.5) 30%, hsla(0, 100%, 40%, 0.5) 50%, hsla(0, 100%, 20%, 0.5) 70%, hsla(0, 100%, 0%, 0.5) 100%);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+header, .config, header button {
+    background-color: #8b8b8b70;
+    backdrop-filter: blur(10px);
+}
+
+header {
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 2px solid rgb(0, 0, 0);            
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+#searchBar {
+    width: 60%;
+    max-width: 600px;
+    padding: 0.5rem;
+    margin: 0.5rem auto;
+    border-radius: 5px;
+    border: 2px solid rgb(0, 0, 0);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#searchBar:focus {
+    border-color: #555;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+header button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin-left: 1rem;
+    border: 2px solid rgb(0, 0, 0); 
+}
+
+header button:hover {
+    background-color: #555;
+    scale: 1.1;
+    border: 2px solid rgb(0, 0, 0); 
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.config { 
+    border: 1px solid #ddd;
+    margin: 1rem;
+    padding: 1rem;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgb(0, 0, 0); 
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+@keyframes colorChange {
+    0% { background-color: #8b8b8b70; }
+    50% { background-color: #535353a9; }
+    100% { background-color: #8b8b8b70; }
+}
+
+.config:hover {
+    animation: colorChange 3s infinite;
+}
+
+.config img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.config h2 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.config p {
+    color: #383838;
+}
+
+.config a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid rgba(0, 0, 0, 0.897);
+    border-radius: 4px; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.39);
+    text-shadow: 0 0 3px rgb(0, 0, 0);
+    transition: transform 0.5s ease;
+}
+
+.config a:hover {
+    background-color: #555;
+    transform: scale(1.1);
+}
+
+.recommended {
+    border: 2px solid rgb(225, 0, 255);
+    box-shadow: rgb(234, 0, 255) 0px 0px 8px;
+}
+
+.active-command {
+    display: inline-block;
+    background-color: #555;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(20%);
+    transition: all 1s ease;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}

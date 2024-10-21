@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configs - Raven XD</title>
     <link id="favicon" rel="icon" href="resources/icons/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="resources/main.css">
+    <link rel="stylesheet" href="resources/styles/index.css">
     <meta content="" name="description"/>
     <meta content="RavenXD.site" property="og:title"/>
     <meta content="The official Raven XD config website." property="og:description"/>
@@ -15,32 +15,25 @@
     <meta content="https://i.ibb.co/FnV9vm1/logo.png" property="twitter:image"/>
     <meta property="og:type" content="website"/>
     <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
 </head>
 <body>
     <header>
-        <div class="header-links">
+        <div>
             <a href="https://dsc.gg/ravenxd" target="_blank">
-                <img src="resources/icons/discord.png" alt="Discord" class="icon">
+                <img src="resources/icons/discord.png" alt="Discord" style="width: 30px; height: 30px;">
             </a>
             <a href="https://bstlar.com/3AL/Raven-XD" target="_blank">
-                <img src="resources/icons/github.png" alt="Github" class="icon">
+                <img src="resources/icons/github.png" alt="Github" style="width: 30px; height: 30px;">
             </a>
         </div>
-        <div class="header-controls">
-            <input id="searchBar" type="text" placeholder="Search... (e.g., creator: pzuo name: VimeMC - Pit)" autocomplete="off">
+        <div>
+            <input id="searchBar" type="text" placeholder="Search... (Ex: creator: pzuo, name: VimeMC - Pit)" autocomplete="off" />
             <button id="toggleOutdated" onclick="toggleOutdatedConfigs()">Hide Outdated</button>
-            <button id="themeToggle">Dark Mode</button> <!-- Toggle button -->
         </div>
     </header>
-    
     <main id="configList">
-        <!-- Config items will be injected here by JavaScript -->
     </main>
-
-    <footer>
-        <p>© 2024 Raven XD. All rights reserved.</p>
-    </footer>
-
-    <script src="resources/js/main.js"></script>
+    <script defer src="resources/js/main.js"></script>
 </body>
 </html>
