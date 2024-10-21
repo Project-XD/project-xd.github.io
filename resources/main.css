@@ -3,25 +3,25 @@
 :root {
     --bg-color: #f0f0f5;
     --text-color: #333;
-    --card-bg-color: white;
-    --card-text-color: #333;
     --accent-color: #008cff;
     --header-bg-color: rgba(255, 255, 255, 0.8);
     --footer-bg-color: rgba(255, 255, 255, 0.8);
     --button-bg-color: #008cff;
     --button-text-color: white;
+    --card-bg-color: white;
+    --card-text-color: #333;
 }
 
 .dark-mode {
     --bg-color: #2b2b2b;
     --text-color: #e5e5e5;
-    --card-bg-color: #333;
-    --card-text-color: #e5e5e5;
     --accent-color: #00aaff;
     --header-bg-color: rgba(43, 43, 43, 0.9);
     --footer-bg-color: rgba(43, 43, 43, 0.9);
     --button-bg-color: #00aaff;
     --button-text-color: white;
+    --card-bg-color: #333;
+    --card-text-color: #e5e5e5;
 }
 
 /* Body and Layout Styling */
@@ -39,8 +39,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--header-bg-color);
     padding: 1rem 2rem;
+    background-color: var(--header-bg-color);
     position: fixed;
     width: 100%;
     top: 0;
@@ -51,34 +51,29 @@ header {
     transition: background-color 0.3s ease;
 }
 
-/* Flex container to center the search bar and buttons */
 .header-controls {
     display: flex;
-    justify-content: center; /* Center horizontally */
+    justify-content: center;
     align-items: center;
     gap: 1rem;
-    width: 100%; /* Make sure the controls take up the full width */
+    width: 100%;
 }
 
-/* Flex container for the header (logo links on the left) */
-/* Flex container for the header (logo links on the left) */
 .header-links {
     display: flex;
     gap: 1rem;
 }
 
-/* Logo icon size - Ensure that the logos are appropriately sized */
 .icon {
-    width: 30px; /* Set a fixed width */
-    height: 30px; /* Set a fixed height */
+    width: 30px;
+    height: 30px;
     transition: transform 0.3s ease;
 }
 
 .icon:hover {
-    transform: scale(1.2); /* Add a hover effect */
+    transform: scale(1.2);
 }
 
-/* Center the search bar and buttons */
 #searchBar {
     width: 300px;
     padding: 0.7rem;
@@ -92,7 +87,6 @@ header {
     outline: none;
 }
 
-/* Button Styles */
 header button {
     padding: 0.5rem 1rem;
     border: none;
@@ -115,6 +109,87 @@ main {
     justify-content: center;
     margin-top: 5rem; /* To account for fixed header */
     padding: 2rem;
+}
+
+.config-info {
+    display: flex;
+    margin-bottom: 2rem;
+    align-items: center;
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 900px;
+}
+
+.cover-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 2rem;
+    border-radius: 10px;
+    border: 2px solid var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.cover-image:hover {
+    transform: scale(1.05);
+}
+
+.details {
+    max-width: 600px;
+}
+
+.details h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+.details p {
+    margin: 0.5rem 0;
+    color: var(--text-color);
+}
+
+/* Tags and Anticheat List */
+.details ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.details ul li {
+    padding: 0.5rem;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.details ul li:hover {
+    transform: scale(1.05);
+}
+
+/* Download Button */
+.download-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border: 2px solid var(--accent-color);
+    background-color: transparent;
+    color: var(--text-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: scale(1.05);
 }
 
 /* Config Card Styling */
