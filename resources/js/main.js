@@ -138,8 +138,6 @@ let hideOutdated = true;
 
 document.addEventListener("DOMContentLoaded", () => {
     populateConfigs();
-    populateTagFilter();
-    populateAnticheatFilter();
     setupSearchBar();
 });
 
@@ -175,20 +173,13 @@ function populateConfigs() {
     const configList = document.getElementById("configList");
     configList.innerHTML = '';
     const searchCriteria = parseSearchQuery(document.getElementById("searchBar").value);
-    const selectedTag = document.getElementById('tagFilter').value;
-    const selectedAnticheat = document.getElementById('serverFilter').value;
 
     configs.forEach(config => {
         if (hideOutdated && config.tags.includes("outdated")) {
             return;
         }
 
-        if (matchesSearchCriteria(config, searchCriteria) &&
-            (selectedTag === "all" || config.tags.includes(selectedTag)) &&
-            (selectedAnticheat === "all" || 
-             (Array.isArray(config.anticheat) && config.anticheat.includes(selectedAnticheat)) || 
-             config.anticheat === selectedAnticheat)) {
-            
+        if (matchesSearchCriteria(config, searchCriteria)) {
             const configDiv = document.createElement('div');
             configDiv.className = 'config';
             configDiv.innerHTML = `
@@ -241,46 +232,4 @@ function toggleOutdatedConfigs() {
     hideOutdated = !hideOutdated;
     document.getElementById('toggleOutdated').textContent = hideOutdated ? "Hide Outdated" : "Show Outdated";
     populateConfigs();
-}
-
-// Populate tag filter
-function populateTagFilter() {
-    const tagFilter = document.getElementById('tagFilter');
-    let allTags = new Set();
-    configs.forEach(config => {
-        config.tags.forEach(tag => {
-            if (tag !== 'hidden') {
-                allTags.add(tag);
-            }
-        });
-    });
-
-    allTags.forEach(tag => {
-        const option = document.createElement('option');
-        option.value = tag;
-        option.textContent = tag;
-        tagFilter.appendChild(option);
-    });
-}
-
-// Populate anticheat filter
-function populateAnticheatFilter() {
-    const serverFilter = document.getElementById('serverFilter');
-    let allAnticheats = new Set();
-    configs.forEach(config => {
-        if (Array.isArray(config.anticheat)) {
-            config.anticheat.forEach(anticheat => {
-                allAnticheats.add(anticheat);
-            });
-        } else {
-            allAnticheats.add(config.anticheat);
-        }
-    });
-
-    allAnticheats.forEach(anticheat => {
-        const option = document.createElement('option');
-        option.value = anticheat;
-        option.textContent = anticheat;
-        serverFilter.appendChild(option);
-    });
 }
