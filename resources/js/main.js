@@ -132,6 +132,7 @@ const configs = [
     }
 }
 ];
+// main.js
 
 const searchFields = ["creator", "name", "anticheat", "ip", "tag"];
 let hideOutdated = true;
@@ -157,6 +158,7 @@ function handleInput(event) {
     const searchBar = event.target;
     const input = searchBar.value.trim();
 
+    // If the user is typing inside a field (e.g., "creator:"), update the current value for that field
     if (currentField && !input.endsWith(">")) {
         searchCriteria[currentField] = input;
     }
@@ -169,16 +171,18 @@ function handleKeyDown(event) {
     const searchBar = event.target;
     const input = searchBar.value.trim();
 
+    // Check if the input matches a command followed by a space (e.g., "creator:")
     if (event.key === " " && input.includes(":") && searchFields.some(field => input.startsWith(field + ":"))) {
         currentField = input.split(":")[0];
-        searchCriteria[currentField] = "";
+        searchCriteria[currentField] = ""; // Start capturing input for this field
         displayActiveSearchCommand(searchBar, currentField);
-        event.preventDefault();
+        event.preventDefault(); // Prevent default space behavior
     }
 
+    // If the right arrow key is pressed, treat it as ending the current field's input
     if (event.key === "ArrowRight" && currentField) {
-        currentField = null;
-        searchBar.value += " ";
+        currentField = null; // Finish the input for the current field
+        searchBar.value += " "; // Add a space after the right arrow press for clarity
         event.preventDefault();
     }
 }
@@ -186,12 +190,35 @@ function handleKeyDown(event) {
 // Handle global key down events
 function handleGlobalKeyDown(event) {
     if (event.key === "Escape") {
+        // Clear the entire search criteria and reset the input field
         currentField = null;
         searchCriteria = {};
         const searchBar = document.getElementById("searchBar");
         searchBar.value = "";
         clearActiveSearchCommands();
     }
+}
+
+// Display active search commands in a styled format within the input area
+function displayActiveSearchCommand(searchBar, field) {
+    // Show the active command with a styled look like a Discord command
+    const commandDisplay = document.createElement("span");
+    commandDisplay.className = "active-command";
+    commandDisplay.textContent = `${field}:`;
+    commandDisplay.setAttribute("data-field", field);
+
+    // Insert the command display before the input field
+    searchBar.insertAdjacentElement("beforebegin", commandDisplay);
+
+    // Clear the input value
+    searchBar.value = "";
+}
+
+// Clear all displayed active search commands
+function clearActiveSearchCommands() {
+    const commands = document.querySelectorAll(".active-command");
+    commands.forEach(command => command.remove());
+    populateConfigs(); // Refresh the displayed configs
 }
 
 // Populate configs based on search criteria
@@ -233,8 +260,7 @@ function setupScrollAnimations() {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('show');
-            } else {
-                entry.target.classList.remove('show');
+                observer.unobserve(entry.target); // Animate once
             }
         });
     });
@@ -263,13 +289,6 @@ function matchesSearchCriteria(config, criteria) {
         }
     }
     return true;
-}
-
-// Clear all displayed active search commands
-function clearActiveSearchCommands() {
-    const commands = document.querySelectorAll(".active-command");
-    commands.forEach(command => command.remove());
-    populateConfigs();
 }
 
 // Toggle outdated configs visibility
