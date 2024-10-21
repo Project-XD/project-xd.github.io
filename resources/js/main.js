@@ -141,7 +141,23 @@ let searchCriteria = {};
 document.addEventListener("DOMContentLoaded", () => {
     populateConfigs();
     setupSearchBar();
+    setupScrollAnimations();
 });
+
+function setupScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+            }
+        });
+    });
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el));
+}
 
 // Setup the search bar with event listeners
 function setupSearchBar() {
