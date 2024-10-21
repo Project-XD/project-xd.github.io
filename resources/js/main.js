@@ -132,9 +132,12 @@ const configs = [
     }
 }
 ];
+// main.js
 
 const searchFields = ["creator", "name", "anticheat", "ip", "tag"];
 let hideOutdated = true;
+let currentField = null;
+let searchCriteria = {};
 
 document.addEventListener("DOMContentLoaded", () => {
     populateConfigs();
@@ -144,27 +147,43 @@ document.addEventListener("DOMContentLoaded", () => {
 // Setup the search bar with event listeners
 function setupSearchBar() {
     const searchBar = document.getElementById("searchBar");
-    searchBar.addEventListener("input", onSearchInput);
+    searchBar.addEventListener("keydown", handleKeyDown);
+    searchBar.addEventListener("input", handleInput);
     searchBar.addEventListener("input", populateConfigs); // Update configs on search input
 }
 
-// Provide autocompletion suggestions
-function onSearchInput(event) {
-    const input = event.target.value;
-    const lastWord = input.split(" ").pop();
+// Handle input for text changes in the search bar
+function handleInput(event) {
+    const input = event.target.value.trim();
 
-    // Display autocomplete suggestions
-    if (lastWord.includes(":")) {
-        showAutocompleteSuggestions(lastWord);
+    // If the user is typing inside a field (e.g., "creator:"), update the current value for that field
+    if (currentField && !input.endsWith(">")) {
+        searchCriteria[currentField] = input;
+    } else if (input.endsWith(">")) {
+        // When the user types ">", end the current field
+        currentField = null;
     }
+
+    populateConfigs();
 }
 
-// Autocomplete functionality (dummy implementation)
-function showAutocompleteSuggestions(lastWord) {
-    const field = lastWord.split(":")[0];
-    if (searchFields.includes(field)) {
-        console.log("Suggestions for " + field + ": <autocomplete values here>");
-        // Implement actual autocomplete dropdown UI here if needed
+function handleKeyDown(event) {
+    const searchBar = event.target;
+    const input = searchBar.value.trim();
+
+    // Check if the input matches a command followed by a space (e.g., "creator:")
+    if (event.key === " " && input.includes(":") && searchFields.some(field => input.startsWith(field + ":"))) {
+        currentField = input.split(":")[0];
+        searchCriteria[currentField] = ""; // Start capturing input for this field
+        searchBar.value = ""; // Clear input for typing in the field value
+        event.preventDefault(); // Prevent default space behavior
+    }
+
+    // If the right arrow key is pressed, treat it as ending the current field's input
+    if (event.key === "ArrowRight" && currentField) {
+        currentField = null; // Finish the input for the current field
+        searchBar.value += " "; // Add a space after the right arrow press for clarity
+        event.preventDefault();
     }
 }
 
@@ -172,7 +191,6 @@ function showAutocompleteSuggestions(lastWord) {
 function populateConfigs() {
     const configList = document.getElementById("configList");
     configList.innerHTML = '';
-    const searchCriteria = parseSearchQuery(document.getElementById("searchBar").value);
 
     configs.forEach(config => {
         if (hideOutdated && config.tags.includes("outdated")) {
@@ -195,32 +213,22 @@ function populateConfigs() {
     });
 }
 
-// Parse search query
-function parseSearchQuery(query) {
-    const criteria = {};
-    const pairs = query.split(" ");
-    pairs.forEach(pair => {
-        const [field, value] = pair.split(":");
-        if (searchFields.includes(field) && value) {
-            criteria[field] = value.toLowerCase();
-        }
-    });
-    return criteria;
-}
-
-// Check if config matches search criteria
+// Check if a config matches the current search criteria
 function matchesSearchCriteria(config, criteria) {
     for (const field in criteria) {
+        const value = criteria[field].toLowerCase();
+        if (!value) continue;
+
         if (field === "tag") {
-            if (!config.tags.some(tag => tag.toLowerCase().includes(criteria[field]))) {
+            if (!config.tags.some(tag => tag.toLowerCase().includes(value))) {
                 return false;
             }
         } else if (field === "anticheat") {
             const anticheats = Array.isArray(config.anticheat) ? config.anticheat : [config.anticheat];
-            if (!anticheats.some(anticheat => anticheat.toLowerCase().includes(criteria[field]))) {
+            if (!anticheats.some(anticheat => anticheat.toLowerCase().includes(value))) {
                 return false;
             }
-        } else if (!config[field].toLowerCase().includes(criteria[field])) {
+        } else if (!config[field].toLowerCase().includes(value)) {
             return false;
         }
     }
