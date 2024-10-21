@@ -27,13 +27,15 @@
                 <img src="resources/icons/github.png" alt="Github" class="icon">
             </a>
         </div>
-        <div class="header-search">
-            <input id="searchBar" type="text" placeholder="Search... (Ex: creator: pzuo, name: VimeMC - Pit)" autocomplete="off">
+        <div class="header-controls">
+            <input id="searchBar" type="text" placeholder="Search... (e.g., creator: pzuo name: VimeMC - Pit)" autocomplete="off">
             <button id="toggleOutdated" onclick="toggleOutdatedConfigs()">Hide Outdated</button>
+            <button id="themeToggle" onclick="toggleTheme()">Dark Mode</button> <!-- Toggle button -->
         </div>
     </header>
     
     <main id="configList">
+        <!-- Config items will be injected here by JavaScript -->
     </main>
 
     <footer>

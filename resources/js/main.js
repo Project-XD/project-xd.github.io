@@ -227,6 +227,20 @@ function populateConfigs() {
     setupScrollAnimations(); // Re-initialize animations after updating the configs
 }
 
+// Toggle between light and dark modes
+function toggleTheme() {
+    const body = document.body;
+    const themeToggleButton = document.getElementById('themeToggle');
+    
+    body.classList.toggle('dark-mode');
+    
+    if (body.classList.contains('dark-mode')) {
+        themeToggleButton.textContent = 'Light Mode';
+    } else {
+        themeToggleButton.textContent = 'Dark Mode';
+    }
+}
+
 // IntersectionObserver setup for scroll animations
 function setupScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {

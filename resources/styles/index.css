@@ -1,14 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans&display=swap');
 
+:root {
+    --bg-color: #f0f0f5;
+    --text-color: #333;
+    --card-bg-color: white;
+    --card-text-color: #333;
+    --accent-color: #008cff;
+    --header-bg-color: rgba(255, 255, 255, 0.8);
+    --footer-bg-color: rgba(255, 255, 255, 0.8);
+    --button-bg-color: #008cff;
+    --button-text-color: white;
+}
+
+.dark-mode {
+    --bg-color: #2b2b2b;
+    --text-color: #e5e5e5;
+    --card-bg-color: #333;
+    --card-text-color: #e5e5e5;
+    --accent-color: #00aaff;
+    --header-bg-color: rgba(43, 43, 43, 0.9);
+    --footer-bg-color: rgba(43, 43, 43, 0.9);
+    --button-bg-color: #00aaff;
+    --button-text-color: white;
+}
+
+/* Body and Layout Styling */
 body {
     font-family: 'Google Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f5;
-    background-image: linear-gradient(120deg, rgba(135, 182, 194, 0.2), rgba(255, 185, 200, 0.2));
-    background-attachment: fixed;
-    background-size: cover;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Header Styling */
@@ -16,7 +39,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: var(--header-bg-color);
     padding: 1rem 2rem;
     position: fixed;
     width: 100%;
@@ -25,6 +48,7 @@ header {
     z-index: 10;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
 }
 
 .header-links {
@@ -42,8 +66,8 @@ header {
     transform: scale(1.2);
 }
 
-/* Search Bar Styling */
-.header-search {
+/* Search Bar and Controls Styling */
+.header-controls {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -62,12 +86,13 @@ header {
     outline: none;
 }
 
+/* Button Styles */
 header button {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
-    background-color: #008cff;
-    color: white;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -77,7 +102,7 @@ header button:hover {
     transform: scale(1.05);
 }
 
-/* Main Config List Styling */
+/* Main Content Styling */
 main {
     display: flex;
     flex-wrap: wrap;
@@ -88,7 +113,7 @@ main {
 
 /* Config Card Styling */
 .config {
-    background-color: white;
+    background-color: var(--card-bg-color);
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     margin: 1rem;
@@ -96,7 +121,7 @@ main {
     width: 220px;
     text-align: center;
     transform: scale(0.95);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     opacity: 0;
     filter: blur(10px);
     transform: translateY(20%);
@@ -108,13 +133,13 @@ main {
     transform: translateY(0) scale(1);
 }
 
-/* Animation on Hover */
+/* Config Hover Effects */
 .config:hover {
     transform: scale(1.05);
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Config Image Styling */
+/* Config Image */
 .config img {
     width: 100%;
     height: 140px;
@@ -123,24 +148,22 @@ main {
     margin-bottom: 1rem;
 }
 
-/* Config Title */
+/* Config Text */
 .config h2 {
     font-size: 1.2rem;
     margin: 0.5rem 0;
-    color: #008cff;
+    color: var(--accent-color);
 }
 
-/* Config Text */
 .config p {
-    color: #666;
+    color: var(--card-text-color);
 }
 
-/* Config Links */
 .config a {
     display: inline-block;
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #008cff;
+    background-color: var(--accent-color);
     color: #fff;
     border-radius: 5px;
     text-decoration: none;
@@ -156,15 +179,16 @@ main {
 footer {
     text-align: center;
     padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: var(--footer-bg-color);
     position: fixed;
     bottom: 0;
     width: 100%;
     box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
 }
 
-/* Animation for Elements */
+/* Scroll Animations */
 .hidden {
     opacity: 0;
     filter: blur(10px);
@@ -172,7 +196,6 @@ footer {
     transition: all 0.8s ease-in-out;
 }
 
-/* Config Animations */
 .config:nth-child(odd) {
     transition-delay: 0.2s;
 }
