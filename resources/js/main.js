@@ -143,15 +143,52 @@ document.addEventListener("DOMContentLoaded", () => {
     setupSearchBar();
     setupScrollAnimations();
     loadTheme();
-    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    setupSearchBar();
 });
 
-// Setup the search bar with event listeners
 function setupSearchBar() {
     const searchBar = document.getElementById("searchBar");
-    searchBar.addEventListener("keydown", handleKeyDown);
-    searchBar.addEventListener("input", handleInput);
-    document.addEventListener("keydown", handleGlobalKeyDown);
+    const toggleOutdated = document.getElementById("toggleOutdated");
+    
+    if (searchBar && toggleOutdated) { // Ensure elements exist
+        searchBar.addEventListener("input", handleSearch);
+        toggleOutdated.addEventListener("click", toggleOutdatedConfigs);
+    }
+}
+
+// Theme Toggle and Persistence
+function applyTheme(theme) {
+    document.body.classList.toggle('dark-mode', theme === 'dark');
+    const themeToggle = document.getElementById('themeToggle');
+    
+    if (themeToggle) {
+        themeToggle.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    }
+}
+
+// Load the saved theme from localStorage or default to light
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+}
+
+// Save the selected theme in localStorage
+function saveTheme(theme) {
+    localStorage.setItem('theme', theme);
+}
+
+// Toggle between light and dark mode
+function toggleTheme() {
+    const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(newTheme);
+    saveTheme(newTheme);
 }
 
 // Handle input for text changes in the search bar
@@ -227,31 +264,6 @@ function populateConfigs() {
     });
 
     setupScrollAnimations(); // Re-initialize animations after updating the configs
-}
-
-// Theme Toggle and Persistence
-function applyTheme(theme) {
-    document.body.classList.toggle('dark-mode', theme === 'dark');
-    document.getElementById('themeToggle').textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
-}
-
-// Load the saved theme from localStorage or default to light
-function loadTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    applyTheme(savedTheme);
-}
-
-// Save the selected theme in localStorage
-function saveTheme(theme) {
-    localStorage.setItem('theme', theme);
-}
-
-// Toggle between light and dark mode
-function toggleTheme() {
-    const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    applyTheme(newTheme);
-    saveTheme(newTheme);
 }
 
 // IntersectionObserver setup for scroll animations
