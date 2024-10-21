@@ -141,6 +141,7 @@ let searchCriteria = {};
 document.addEventListener("DOMContentLoaded", () => {
     populateConfigs();
     setupSearchBar();
+    setupScrollAnimations();
 });
 
 // Setup the search bar with event listeners
@@ -156,7 +157,6 @@ function handleInput(event) {
     const searchBar = event.target;
     const input = searchBar.value.trim();
 
-    // If the user is typing inside a field (e.g., "creator:"), update the current value for that field
     if (currentField && !input.endsWith(">")) {
         searchCriteria[currentField] = input;
     }
@@ -169,18 +169,16 @@ function handleKeyDown(event) {
     const searchBar = event.target;
     const input = searchBar.value.trim();
 
-    // Check if the input matches a command followed by a space (e.g., "creator:")
     if (event.key === " " && input.includes(":") && searchFields.some(field => input.startsWith(field + ":"))) {
         currentField = input.split(":")[0];
-        searchCriteria[currentField] = ""; // Start capturing input for this field
+        searchCriteria[currentField] = "";
         displayActiveSearchCommand(searchBar, currentField);
-        event.preventDefault(); // Prevent default space behavior
+        event.preventDefault();
     }
 
-    // If the right arrow key is pressed, treat it as ending the current field's input
     if (event.key === "ArrowRight" && currentField) {
-        currentField = null; // Finish the input for the current field
-        searchBar.value += " "; // Add a space after the right arrow press for clarity
+        currentField = null;
+        searchBar.value += " ";
         event.preventDefault();
     }
 }
@@ -188,7 +186,6 @@ function handleKeyDown(event) {
 // Handle global key down events
 function handleGlobalKeyDown(event) {
     if (event.key === "Escape") {
-        // Clear the entire search criteria and reset the input field
         currentField = null;
         searchCriteria = {};
         const searchBar = document.getElementById("searchBar");
@@ -197,37 +194,14 @@ function handleGlobalKeyDown(event) {
     }
 }
 
-// Display active search commands in a styled format within the input area
-function displayActiveSearchCommand(searchBar, field) {
-    // Show the active command with a styled look like a Discord command
-    const commandDisplay = document.createElement("span");
-    commandDisplay.className = "active-command";
-    commandDisplay.textContent = `${field}:`;
-    commandDisplay.setAttribute("data-field", field);
-
-    // Insert the command display before the input field
-    searchBar.insertAdjacentElement("beforebegin", commandDisplay);
-
-    // Clear the input value
-    searchBar.value = "";
-}
-
-// Clear all displayed active search commands
-function clearActiveSearchCommands() {
-    const commands = document.querySelectorAll(".active-command");
-    commands.forEach(command => command.remove());
-    populateConfigs(); // Refresh the displayed configs
-}
-
-// Updated populateConfigs function to handle null configList
+// Populate configs based on search criteria
 function populateConfigs() {
     const configList = document.getElementById("configList");
-    
-    // If configList is not found, exit the function
+
     if (!configList) {
         return;
     }
-    
+
     configList.innerHTML = '';
 
     configs.forEach(config => {
@@ -237,7 +211,7 @@ function populateConfigs() {
 
         if (matchesSearchCriteria(config, searchCriteria)) {
             const configDiv = document.createElement('div');
-            configDiv.className = 'config';
+            configDiv.className = 'config hidden'; // Add the 'hidden' class initially
             configDiv.innerHTML = `
                 <img src="${config.cover}" alt="${config.name}">
                 <h2>${config.name}</h2>
@@ -249,6 +223,24 @@ function populateConfigs() {
             configList.appendChild(configDiv);
         }
     });
+
+    setupScrollAnimations(); // Re-initialize animations after updating the configs
+}
+
+// Function to initialize scroll animations using IntersectionObserver
+function setupScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+            }
+        });
+    });
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el));
 }
 
 // Check if a config matches the current search criteria
@@ -271,6 +263,13 @@ function matchesSearchCriteria(config, criteria) {
         }
     }
     return true;
+}
+
+// Clear all displayed active search commands
+function clearActiveSearchCommands() {
+    const commands = document.querySelectorAll(".active-command");
+    commands.forEach(command => command.remove());
+    populateConfigs();
 }
 
 // Toggle outdated configs visibility
