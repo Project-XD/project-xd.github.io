@@ -124,3 +124,13 @@ main {
     border: 2px solid rgb(225, 0, 255);
     box-shadow: rgb(234, 0, 255) 0px 0px 8px;
 }
+
+.active-command {
+    display: inline-block;
+    background-color: #555;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}

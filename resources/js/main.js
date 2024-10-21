@@ -132,7 +132,6 @@ const configs = [
     }
 }
 ];
-// main.js
 
 const searchFields = ["creator", "name", "anticheat", "ip", "tag"];
 let hideOutdated = true;
@@ -149,24 +148,23 @@ function setupSearchBar() {
     const searchBar = document.getElementById("searchBar");
     searchBar.addEventListener("keydown", handleKeyDown);
     searchBar.addEventListener("input", handleInput);
-    searchBar.addEventListener("input", populateConfigs); // Update configs on search input
+    document.addEventListener("keydown", handleGlobalKeyDown);
 }
 
 // Handle input for text changes in the search bar
 function handleInput(event) {
-    const input = event.target.value.trim();
+    const searchBar = event.target;
+    const input = searchBar.value.trim();
 
     // If the user is typing inside a field (e.g., "creator:"), update the current value for that field
     if (currentField && !input.endsWith(">")) {
         searchCriteria[currentField] = input;
-    } else if (input.endsWith(">")) {
-        // When the user types ">", end the current field
-        currentField = null;
     }
 
     populateConfigs();
 }
 
+// Handle key down events for special cases like space, arrow keys, and escape
 function handleKeyDown(event) {
     const searchBar = event.target;
     const input = searchBar.value.trim();
@@ -175,7 +173,7 @@ function handleKeyDown(event) {
     if (event.key === " " && input.includes(":") && searchFields.some(field => input.startsWith(field + ":"))) {
         currentField = input.split(":")[0];
         searchCriteria[currentField] = ""; // Start capturing input for this field
-        searchBar.value = ""; // Clear input for typing in the field value
+        displayActiveSearchCommand(searchBar, currentField);
         event.preventDefault(); // Prevent default space behavior
     }
 
@@ -185,6 +183,40 @@ function handleKeyDown(event) {
         searchBar.value += " "; // Add a space after the right arrow press for clarity
         event.preventDefault();
     }
+}
+
+// Handle global key down events
+function handleGlobalKeyDown(event) {
+    if (event.key === "Escape") {
+        // Clear the entire search criteria and reset the input field
+        currentField = null;
+        searchCriteria = {};
+        const searchBar = document.getElementById("searchBar");
+        searchBar.value = "";
+        clearActiveSearchCommands();
+    }
+}
+
+// Display active search commands in a styled format within the input area
+function displayActiveSearchCommand(searchBar, field) {
+    // Show the active command with a styled look like a Discord command
+    const commandDisplay = document.createElement("span");
+    commandDisplay.className = "active-command";
+    commandDisplay.textContent = `${field}:`;
+    commandDisplay.setAttribute("data-field", field);
+
+    // Insert the command display before the input field
+    searchBar.insertAdjacentElement("beforebegin", commandDisplay);
+
+    // Clear the input value
+    searchBar.value = "";
+}
+
+// Clear all displayed active search commands
+function clearActiveSearchCommands() {
+    const commands = document.querySelectorAll(".active-command");
+    commands.forEach(command => command.remove());
+    populateConfigs(); // Refresh the displayed configs
 }
 
 // Populate configs based on search criteria
