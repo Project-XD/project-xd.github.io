@@ -17,9 +17,19 @@
     <meta content="summary_large_image" name="twitter:card"/>
 </head>
 <body>
-    <header id="configHeader">
-        <h1 id="configTitle">Config Details</h1>
-        <a href="https://project-xd.github.io" class="back-button">Back</a>
+    <header>
+        <div class="header-links">
+            <a href="https://dsc.gg/ravenxd" target="_blank">
+                <img src="resources/icons/discord.png" alt="Discord" class="icon">
+            </a>
+            <a href="https://bstlar.com/3AL/Raven-XD" target="_blank">
+                <img src="resources/icons/github.png" alt="Github" class="icon">
+            </a>
+        </div>
+        <div class="header-controls">
+            <button id="themeToggle">Dark Mode</button> <!-- Toggle button -->
+        </div>
+        <a href="https://project-xd.github.io" class="back-button">Back</a> <!-- Back button remains here -->
     </header>
     
     <main id="configDetails"></main>
@@ -28,14 +38,13 @@
         <p>© 2024 Raven XD. All rights reserved.</p>
     </footer>
 
-    <script defer src="resources/js/main.js"></script>
+    <script src="resources/js/main.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const params = new URLSearchParams(window.location.search);
             const configId = parseInt(params.get("id"));
             const config = configs.find(p => p.id === configId);
 
-            // Apply config colors and gradient background
             document.getElementById('configHeader').style.borderBottomColor = config.colors.header;
             document.getElementById('configTitle').style.color = config.colors.text;
             document.querySelector('.back-button').style.borderColor = config.colors.header;

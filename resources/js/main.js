@@ -142,6 +142,8 @@ document.addEventListener("DOMContentLoaded", () => {
     populateConfigs();
     setupSearchBar();
     setupScrollAnimations();
+    loadTheme();
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 });
 
 // Setup the search bar with event listeners
@@ -227,18 +229,29 @@ function populateConfigs() {
     setupScrollAnimations(); // Re-initialize animations after updating the configs
 }
 
-// Toggle between light and dark modes
+// Theme Toggle and Persistence
+function applyTheme(theme) {
+    document.body.classList.toggle('dark-mode', theme === 'dark');
+    document.getElementById('themeToggle').textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+}
+
+// Load the saved theme from localStorage or default to light
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+}
+
+// Save the selected theme in localStorage
+function saveTheme(theme) {
+    localStorage.setItem('theme', theme);
+}
+
+// Toggle between light and dark mode
 function toggleTheme() {
-    const body = document.body;
-    const themeToggleButton = document.getElementById('themeToggle');
-    
-    body.classList.toggle('dark-mode');
-    
-    if (body.classList.contains('dark-mode')) {
-        themeToggleButton.textContent = 'Light Mode';
-    } else {
-        themeToggleButton.textContent = 'Dark Mode';
-    }
+    const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(newTheme);
+    saveTheme(newTheme);
 }
 
 // IntersectionObserver setup for scroll animations
