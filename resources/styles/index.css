@@ -61,9 +61,21 @@ header {
 }
 
 /* Flex container for the header (logo links on the left) */
+/* Flex container for the header (logo links on the left) */
 .header-links {
     display: flex;
     gap: 1rem;
+}
+
+/* Logo icon size - Ensure that the logos are appropriately sized */
+.icon {
+    width: 30px; /* Set a fixed width */
+    height: 30px; /* Set a fixed height */
+    transition: transform 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.2); /* Add a hover effect */
 }
 
 /* Center the search bar and buttons */
