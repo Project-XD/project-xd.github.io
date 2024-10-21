@@ -174,3 +174,16 @@ footer {
 .icon:hover {
     transform: scale(1.2);
 }
+
+.header-controls {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    gap: 1rem;
+    width: 100%; /* Make sure the controls take up the full width */
+}
+
+.header-links {
+    display: flex;
+    gap: 1rem;
+}
