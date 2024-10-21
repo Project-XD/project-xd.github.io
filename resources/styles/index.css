@@ -51,28 +51,22 @@ header {
     transition: background-color 0.3s ease;
 }
 
+/* Flex container to center the search bar and buttons */
+.header-controls {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    gap: 1rem;
+    width: 100%; /* Make sure the controls take up the full width */
+}
+
+/* Flex container for the header (logo links on the left) */
 .header-links {
     display: flex;
     gap: 1rem;
 }
 
-.icon {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease;
-}
-
-.icon:hover {
-    transform: scale(1.2);
-}
-
-/* Search Bar and Controls Styling */
-.header-controls {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
+/* Center the search bar and buttons */
 #searchBar {
     width: 300px;
     padding: 0.7rem;
