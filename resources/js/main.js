@@ -132,13 +132,49 @@ const configs = [
     }
 }
 ];
+// Config data remains the same
 
-// Additional setup for the search bar
+// Global variables for search functionality
+const searchFields = ["creator", "name", "anticheat", "ip", "tag"];
+let hideOutdated = true;  // Ensure this is defined
+let currentField = null;
+let searchCriteria = {};
+
+// Add event listeners after declaring global variables
 document.addEventListener("DOMContentLoaded", () => {
     populateConfigs();
     setupSearchBar();
     setupScrollAnimations();
 });
+
+// Function to populate configs based on search criteria
+function populateConfigs() {
+    const configList = document.getElementById("configList");
+    configList.innerHTML = '';
+
+    configs.forEach(config => {
+        if (hideOutdated && config.tags.includes("outdated")) {  // Use hideOutdated here
+            return;
+        }
+
+        if (matchesSearchCriteria(config, searchCriteria)) {
+            const configDiv = document.createElement('div');
+            configDiv.className = 'config hidden';
+            configDiv.innerHTML = `
+                <img src="${config.cover}" alt="${config.name}">
+                <h2>${config.name}</h2>
+                <p>Anticheat: ${Array.isArray(config.anticheat) ? config.anticheat.join(", ") : config.anticheat}</p>
+                <p>Creator: ${config.creator}</p>
+                <p>IP: ${config.ip}</p>
+                <a href="config?id=${config.id}">View Config</a>
+            `;
+            configList.appendChild(configDiv);
+        }
+    });
+}
+
+// Other functions like setupSearchBar(), handleInput(), handleKeyDown(), etc., follow here...
+
 
 // Setup the search bar with event listeners
 function setupSearchBar() {
@@ -188,32 +224,6 @@ function handleGlobalKeyDown(event) {
         document.getElementById("searchBar").value = "";
         populateConfigs();
     }
-}
-
-// Populate configs based on search criteria
-function populateConfigs() {
-    const configList = document.getElementById("configList");
-    configList.innerHTML = '';
-
-    configs.forEach(config => {
-        if (hideOutdated && config.tags.includes("outdated")) {
-            return;
-        }
-
-        if (matchesSearchCriteria(config, searchCriteria)) {
-            const configDiv = document.createElement('div');
-            configDiv.className = 'config hidden';
-            configDiv.innerHTML = `
-                <img src="${config.cover}" alt="${config.name}">
-                <h2>${config.name}</h2>
-                <p>Anticheat: ${Array.isArray(config.anticheat) ? config.anticheat.join(", ") : config.anticheat}</p>
-                <p>Creator: ${config.creator}</p>
-                <p>IP: ${config.ip}</p>
-                <a href="config?id=${config.id}">View Config</a>
-            `;
-            configList.appendChild(configDiv);
-        }
-    });
 }
 
 // Check if a config matches the current search criteria
