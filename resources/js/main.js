@@ -54,7 +54,7 @@ const configs = [
     downloadLink: "https://github.com/user-attachments/files/17238894/Legit-qloha.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://bstlar.com/3AL/Raven-XD", "Download Raven XD"]],
     colors: {
-        text: "#ffffff", // Text
+        text: "#000000", // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
@@ -63,13 +63,13 @@ const configs = [
     id: 3,
     name: "VimeMC Pit",
     creator: "qloha",
-    updated: "10/4/2024",
+    updated: "10/22/2024",
     tags: ["Blatant", "Ghost", "recommended"],
     anticheat: "Grim",
     description: ["Bypasses fully, no flags.<b><br />Killaura - R<br />Speed - G<br />Gui - RShift<br />All Visuals - - (minus)</b>"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/VimeMC.png",
     ip: "mc.vimemc.net",
-    downloadLink: "https://github.com/user-attachments/files/17251234/VMCPit-qloha.json",
+    downloadLink: "https://github.com/user-attachments/files/17484102/VMCPit-qloha.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://bstlar.com/3AL/Raven-XD", "Download Raven XD"]],
     colors: {
         text: "#00ff04", // Text
@@ -90,7 +90,7 @@ const configs = [
     downloadLink: "https://github.com/user-attachments/files/17266882/HylexMC-qloha.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://bstlar.com/3AL/Raven-XD", "Download Raven XD"]],
     colors: {
-        text: "#ff00f2", // Text
+        text: "#000000", // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
@@ -108,7 +108,7 @@ const configs = [
     downloadLink: "https://github.com/user-attachments/files/17402408/BlocksMC-clk.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://bstlar.com/3AL/Raven-XD", "Download Raven XD"]],
     colors: {
-        text: "#ff0000", // Text
+        text: "#000000", // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
@@ -126,7 +126,25 @@ const configs = [
     downloadLink: "https://github.com/user-attachments/files/17348121/VimeMCPit-under.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://bstlar.com/3AL/Raven-XD", "Download Raven XD"]],
     colors: {
-        text: "#b5b5b5", // Text
+        text: "#000000", // Text
+        accent: "#36fff5", // Accent
+        header: "#f70cf0" // Header
+    }
+},
+{
+    id: 7,
+    name: "Pika",
+    creator: "pzuo",
+    updated: "10/22/2024",
+    tags: ["Ghost", "Blatant", "recommended"],
+    anticheat: ["Polar"],
+    description: ["Killaura sometimes flags.<b><br />Killaura - R<br />Speed X<br />Scaffold Rmenu</b>"],
+    cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/VimeMC.png",
+    ip: "play.pika-network.net",
+    downloadLink: "https://github.com/user-attachments/files/17484130/Pika-under.json",
+    otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://bstlar.com/3AL/Raven-XD", "Download Raven XD"]],
+    colors: {
+        text: "#000000", // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
