@@ -54,7 +54,7 @@ const configs = [
     downloadLink: "https://github.com/user-attachments/files/17238894/Legit-qloha.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://bstlar.com/3AL/Raven-XD", "Download Raven XD"]],
     colors: {
-        text: "#000000", // Text
+        text: "#ffffff", // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
@@ -72,7 +72,7 @@ const configs = [
     downloadLink: "https://github.com/user-attachments/files/17251234/VMCPit-qloha.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://bstlar.com/3AL/Raven-XD", "Download Raven XD"]],
     colors: {
-        text: "#000000", // Text
+        text: "#00ff04", // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
@@ -90,7 +90,7 @@ const configs = [
     downloadLink: "https://github.com/user-attachments/files/17266882/HylexMC-qloha.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://bstlar.com/3AL/Raven-XD", "Download Raven XD"]],
     colors: {
-        text: "#000000", // Text
+        text: "#ff00f2", // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
@@ -108,7 +108,7 @@ const configs = [
     downloadLink: "https://github.com/user-attachments/files/17402408/BlocksMC-clk.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://bstlar.com/3AL/Raven-XD", "Download Raven XD"]],
     colors: {
-        text: "#000000", // Text
+        text: "#ff0000", // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
@@ -126,56 +126,61 @@ const configs = [
     downloadLink: "https://github.com/user-attachments/files/17348121/VimeMCPit-under.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://bstlar.com/3AL/Raven-XD", "Download Raven XD"]],
     colors: {
-        text: "#000000", // Text
+        text: "#b5b5b5", // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
 }
 ];
 
-// Global variables for search functionality
 const searchFields = ["creator", "name", "anticheat", "ip", "tag"];
 let hideOutdated = true;
 let currentField = null;
 let searchCriteria = {};
 
+document.addEventListener("DOMContentLoaded", () => {
+    populateConfigs();
+    setupSearchBar();
+});
+
 // Setup the search bar with event listeners
 function setupSearchBar() {
     const searchBar = document.getElementById("searchBar");
-    searchBar.addEventListener("input", handleInput);
     searchBar.addEventListener("keydown", handleKeyDown);
+    searchBar.addEventListener("input", handleInput);
     document.addEventListener("keydown", handleGlobalKeyDown);
 }
 
 // Handle input for text changes in the search bar
 function handleInput(event) {
-    const input = event.target.value.trim();
+    const searchBar = event.target;
+    const input = searchBar.value.trim();
 
-    // If the input starts with a recognized field (e.g., "creator:"), update search criteria for that field
-    if (currentField && input.startsWith(currentField + ":")) {
-        searchCriteria[currentField] = input.substring(currentField.length + 1).trim();
-    } else {
-        currentField = null;
-        searchCriteria = {}; // Clear previous criteria if input does not start with a field
-        if (input) {
-            // Apply general search to multiple fields
-            searchCriteria["general"] = input;
-        }
+    // If the user is typing inside a field (e.g., "creator:"), update the current value for that field
+    if (currentField && !input.endsWith(">")) {
+        searchCriteria[currentField] = input;
     }
+
     populateConfigs();
 }
 
 // Handle key down events for special cases like space, arrow keys, and escape
 function handleKeyDown(event) {
-    const input = event.target.value.trim();
+    const searchBar = event.target;
+    const input = searchBar.value.trim();
 
+    // Check if the input matches a command followed by a space (e.g., "creator:")
     if (event.key === " " && input.includes(":") && searchFields.some(field => input.startsWith(field + ":"))) {
         currentField = input.split(":")[0];
+        searchCriteria[currentField] = ""; // Start capturing input for this field
+        displayActiveSearchCommand(searchBar, currentField);
         event.preventDefault(); // Prevent default space behavior
     }
 
+    // If the right arrow key is pressed, treat it as ending the current field's input
     if (event.key === "ArrowRight" && currentField) {
-        currentField = null;
+        currentField = null; // Finish the input for the current field
+        searchBar.value += " "; // Add a space after the right arrow press for clarity
         event.preventDefault();
     }
 }
@@ -183,16 +188,46 @@ function handleKeyDown(event) {
 // Handle global key down events
 function handleGlobalKeyDown(event) {
     if (event.key === "Escape") {
+        // Clear the entire search criteria and reset the input field
         currentField = null;
         searchCriteria = {};
-        document.getElementById("searchBar").value = "";
-        populateConfigs();
+        const searchBar = document.getElementById("searchBar");
+        searchBar.value = "";
+        clearActiveSearchCommands();
     }
 }
 
-// Populate configs based on search criteria
+// Display active search commands in a styled format within the input area
+function displayActiveSearchCommand(searchBar, field) {
+    // Show the active command with a styled look like a Discord command
+    const commandDisplay = document.createElement("span");
+    commandDisplay.className = "active-command";
+    commandDisplay.textContent = `${field}:`;
+    commandDisplay.setAttribute("data-field", field);
+
+    // Insert the command display before the input field
+    searchBar.insertAdjacentElement("beforebegin", commandDisplay);
+
+    // Clear the input value
+    searchBar.value = "";
+}
+
+// Clear all displayed active search commands
+function clearActiveSearchCommands() {
+    const commands = document.querySelectorAll(".active-command");
+    commands.forEach(command => command.remove());
+    populateConfigs(); // Refresh the displayed configs
+}
+
+// Updated populateConfigs function to handle null configList
 function populateConfigs() {
     const configList = document.getElementById("configList");
+    
+    // If configList is not found, exit the function
+    if (!configList) {
+        return;
+    }
+    
     configList.innerHTML = '';
 
     configs.forEach(config => {
@@ -202,7 +237,7 @@ function populateConfigs() {
 
         if (matchesSearchCriteria(config, searchCriteria)) {
             const configDiv = document.createElement('div');
-            configDiv.className = 'config hidden';
+            configDiv.className = 'config';
             configDiv.innerHTML = `
                 <img src="${config.cover}" alt="${config.name}">
                 <h2>${config.name}</h2>
@@ -218,31 +253,10 @@ function populateConfigs() {
 
 // Check if a config matches the current search criteria
 function matchesSearchCriteria(config, criteria) {
-    // If no criteria, show all configs
-    if (!Object.keys(criteria).length) {
-        return true;
-    }
-
     for (const field in criteria) {
         const value = criteria[field].toLowerCase();
         if (!value) continue;
 
-        if (field === "general") {
-            // General search, match against multiple fields
-            if (
-                config.name.toLowerCase().includes(value) ||
-                config.creator.toLowerCase().includes(value) ||
-                (Array.isArray(config.tags) && config.tags.some(tag => tag.toLowerCase().includes(value))) ||
-                (Array.isArray(config.anticheat) && config.anticheat.some(anticheat => anticheat.toLowerCase().includes(value))) ||
-                (typeof config.ip === "string" && config.ip.toLowerCase().includes(value))
-            ) {
-                continue;
-            } else {
-                return false;
-            }
-        }
-
-        // Specific field matching
         if (field === "tag") {
             if (!config.tags.some(tag => tag.toLowerCase().includes(value))) {
                 return false;
@@ -252,16 +266,16 @@ function matchesSearchCriteria(config, criteria) {
             if (!anticheats.some(anticheat => anticheat.toLowerCase().includes(value))) {
                 return false;
             }
-        } else if (!config[field] || !config[field].toLowerCase().includes(value)) {
+        } else if (!config[field].toLowerCase().includes(value)) {
             return false;
         }
     }
     return true;
 }
 
-// Add event listeners after declaring global variables
-document.addEventListener("DOMContentLoaded", () => {
+// Toggle outdated configs visibility
+function toggleOutdatedConfigs() {
+    hideOutdated = !hideOutdated;
+    document.getElementById('toggleOutdated').textContent = hideOutdated ? "Hide Outdated" : "Show Outdated";
     populateConfigs();
-    setupSearchBar();
-    setupScrollAnimations();
-});
+}
