@@ -132,64 +132,12 @@ const configs = [
     }
 }
 ];
-// Config data remains the same
 
 // Global variables for search functionality
 const searchFields = ["creator", "name", "anticheat", "ip", "tag"];
-let hideOutdated = true;  // Ensure this is defined
+let hideOutdated = true;
 let currentField = null;
 let searchCriteria = {};
-
-// Add event listeners after declaring global variables
-document.addEventListener("DOMContentLoaded", () => {
-    populateConfigs();
-    setupSearchBar();
-    setupScrollAnimations();
-});
-
-function setupScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            } else {
-                entry.target.classList.remove('show');
-            }
-        });
-    });
-
-    const hiddenElements = document.querySelectorAll('.hidden');
-    hiddenElements.forEach((el) => observer.observe(el));
-}
-
-// Function to populate configs based on search criteria
-function populateConfigs() {
-    const configList = document.getElementById("configList");
-    configList.innerHTML = '';
-
-    configs.forEach(config => {
-        if (hideOutdated && config.tags.includes("outdated")) {  // Use hideOutdated here
-            return;
-        }
-
-        if (matchesSearchCriteria(config, searchCriteria)) {
-            const configDiv = document.createElement('div');
-            configDiv.className = 'config hidden';
-            configDiv.innerHTML = `
-                <img src="${config.cover}" alt="${config.name}">
-                <h2>${config.name}</h2>
-                <p>Anticheat: ${Array.isArray(config.anticheat) ? config.anticheat.join(", ") : config.anticheat}</p>
-                <p>Creator: ${config.creator}</p>
-                <p>IP: ${config.ip}</p>
-                <a href="config?id=${config.id}">View Config</a>
-            `;
-            configList.appendChild(configDiv);
-        }
-    });
-}
-
-// Other functions like setupSearchBar(), handleInput(), handleKeyDown(), etc., follow here...
-
 
 // Setup the search bar with event listeners
 function setupSearchBar() {
@@ -203,14 +151,15 @@ function setupSearchBar() {
 function handleInput(event) {
     const input = event.target.value.trim();
 
-    // Update the search criteria based on input
+    // If the input starts with a recognized field (e.g., "creator:"), update search criteria for that field
     if (currentField && input.startsWith(currentField + ":")) {
         searchCriteria[currentField] = input.substring(currentField.length + 1).trim();
     } else {
         currentField = null;
-        searchCriteria = {}; // Clear previous criteria if general input
+        searchCriteria = {}; // Clear previous criteria if input does not start with a field
         if (input) {
-            searchCriteria["name"] = input;
+            // Apply general search to multiple fields
+            searchCriteria["general"] = input;
         }
     }
     populateConfigs();
@@ -241,12 +190,59 @@ function handleGlobalKeyDown(event) {
     }
 }
 
+// Populate configs based on search criteria
+function populateConfigs() {
+    const configList = document.getElementById("configList");
+    configList.innerHTML = '';
+
+    configs.forEach(config => {
+        if (hideOutdated && config.tags.includes("outdated")) {
+            return;
+        }
+
+        if (matchesSearchCriteria(config, searchCriteria)) {
+            const configDiv = document.createElement('div');
+            configDiv.className = 'config hidden';
+            configDiv.innerHTML = `
+                <img src="${config.cover}" alt="${config.name}">
+                <h2>${config.name}</h2>
+                <p>Anticheat: ${Array.isArray(config.anticheat) ? config.anticheat.join(", ") : config.anticheat}</p>
+                <p>Creator: ${config.creator}</p>
+                <p>IP: ${config.ip}</p>
+                <a href="config?id=${config.id}">View Config</a>
+            `;
+            configList.appendChild(configDiv);
+        }
+    });
+}
+
 // Check if a config matches the current search criteria
 function matchesSearchCriteria(config, criteria) {
+    // If no criteria, show all configs
+    if (!Object.keys(criteria).length) {
+        return true;
+    }
+
     for (const field in criteria) {
         const value = criteria[field].toLowerCase();
         if (!value) continue;
 
+        if (field === "general") {
+            // General search, match against multiple fields
+            if (
+                config.name.toLowerCase().includes(value) ||
+                config.creator.toLowerCase().includes(value) ||
+                (Array.isArray(config.tags) && config.tags.some(tag => tag.toLowerCase().includes(value))) ||
+                (Array.isArray(config.anticheat) && config.anticheat.some(anticheat => anticheat.toLowerCase().includes(value))) ||
+                (typeof config.ip === "string" && config.ip.toLowerCase().includes(value))
+            ) {
+                continue;
+            } else {
+                return false;
+            }
+        }
+
+        // Specific field matching
         if (field === "tag") {
             if (!config.tags.some(tag => tag.toLowerCase().includes(value))) {
                 return false;
@@ -256,9 +252,16 @@ function matchesSearchCriteria(config, criteria) {
             if (!anticheats.some(anticheat => anticheat.toLowerCase().includes(value))) {
                 return false;
             }
-        } else if (!config[field].toLowerCase().includes(value)) {
+        } else if (!config[field] || !config[field].toLowerCase().includes(value)) {
             return false;
         }
     }
     return true;
 }
+
+// Add event listeners after declaring global variables
+document.addEventListener("DOMContentLoaded", () => {
+    populateConfigs();
+    setupSearchBar();
+    setupScrollAnimations();
+});
