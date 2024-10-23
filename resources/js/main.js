@@ -72,7 +72,7 @@ const configs = [
     downloadLink: "https://github.com/user-attachments/files/17484102/VMCPit-qloha.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://bstlar.com/3AL/Raven-XD", "Download Raven XD"]],
     colors: {
-        text: "#00ff04", // Text
+        text: "#000000", // Text
         accent: "#36fff5", // Accent
         header: "#f70cf0" // Header
     }
@@ -139,7 +139,7 @@ const configs = [
     tags: ["Ghost", "Blatant", "recommended"],
     anticheat: ["Polar"],
     description: ["Killaura sometimes flags.<b><br />Killaura - R<br />Speed X<br />Scaffold Rmenu</b>"],
-    cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/VimeMC.png",
+    cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/pika.png",
     ip: "play.pika-network.net",
     downloadLink: "https://github.com/user-attachments/files/17484130/Pika-under.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://bstlar.com/3AL/Raven-XD", "Download Raven XD"]],
