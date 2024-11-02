@@ -156,7 +156,7 @@ const configs = [
     updated: "11/1/2024",
     tags: ["Blatant", "recommended"],
     anticheat: ["Old Grim"],
-    description: ["Good bypasses. Make sure you are using the latest version of Raven XD with the updated StaffDetector to avoid possible staff bans. You can get my dev build [here](https://file.io/F8sEwbU0Mpn9).<b><br />Killaura - R<br />Speed - G<br />Scaffold - H<br />Velocity - V<br />NoFall - N<br />Fly & Blink - F<br />Visuals - Minus</b>"],
+    description: ["Good bypasses. Make sure you are using the latest version of Raven XD with the updated StaffDetector to avoid possible staff bans. You can get my dev build at here: https://file.io/F8sEwbU0Mpn9 <b><br />Killaura - R<br />Speed - G<br />Scaffold - H<br />Velocity - V<br />NoFall - N<br />Fly & Blink - F<br />Visuals - Minus</b>"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/stardix.png",
     ip: "play.stardix.com",
     downloadLink: "https://github.com/user-attachments/files/17605101/Stardix-qloha.json",
