@@ -153,13 +153,13 @@ const configs = [
     id: 8,
     name: "Stardix",
     creator: "qloha",
-    updated: "11/2/2024",
+    updated: "11/3/2024",
     tags: ["Blatant", "recommended"],
     anticheat: ["Old Grim"],
-    description: ["Good bypasses. Make sure you are using the latest version of Raven XD with the updated StaffDetector to avoid possible staff bans. You can get my dev build at here: https://www.file.io/BJ1r/download/Hs7CNEna5nGr <b><br />Killaura - R<br />Speed - G<br />Scaffold - H<br />Velocity - V<br />NoFall - N<br />Fly & Blink - F<br />Visuals - Minus</b>"],
+    description: ["Good bypasses. Make sure you are using the latest version of Raven XD with the updated StaffDetector to avoid possible staff bans. You can get my dev build at here: https://www.file.io/BJ1r/download/Hs7CNEna5nGr <b><br />KillAura & Criticals - R<br />Speed - G<br />Scaffold - H<br />Velocity - V<br />NoFall - N<br />Fly & Blink - F<br />Visuals - Minus<br />BedAura - X<br />BedDefender - Z</b>"],
     cover: "https://raw.githubusercontent.com/Project-XD/project-xd.github.io/master/resources/icons/stardix.png",
     ip: "play.stardix.com",
-    downloadLink: "https://github.com/user-attachments/files/17608115/Stardix-qloha.json",
+    downloadLink: "https://github.com/user-attachments/files/17610806/Stardix-qloha.json",
     otherButtons:[["https://adfoc.us/serve/sitelinks/?id=271228&url=https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar", "Download Forge"], ["https://bstlar.com/3AL/Raven-XD", "Download Raven XD"]],
     colors: {
         text: "#000000", // Text
